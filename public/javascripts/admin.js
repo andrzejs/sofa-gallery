@@ -1,28 +1,9 @@
-$(document).ready(function() {
-  var current_path = window.location.pathname;
-  $('select#news_event_news_type').change(function() {
-    if ($(this).val() != 'news')
-      $('.date_fields').show();
-    else
-      $('.date_fields').hide();
-  })
-  $('ul.sortable_resources').each(function(){
-    $(this).sortable({  handle: 'div.icon',
-      update: function() {
-        $.post(current_path + '/reorder', '_method=put&'+$(this).sortable('serialize'));
-      } 
-    })
-  });
-})
-
-
-
-$.VSVSVS = function(){
+$.CMS_Gallery = function(){
   var current_path = window.location.pathname;
   var admin_path_prefix = current_path.split('/')[1]
   
   $(document).ready(function(){
-    if($('#file_container').get(0))  $.VSVSVS.enable_photo_uploader();
+    if($('#file_container').get(0))  $.CMS_Gallery.enable_photo_uploader();
   });
   
   return {

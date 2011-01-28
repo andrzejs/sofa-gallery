@@ -1,19 +1,4 @@
-
 $(document).ready(function() {
-  // Homepage banner
-
-  // $("#slidetabs").tabs("#homepage_banner > .slide", {
-  //   effect: 'fade',
-  //   rotate: true
-  // }).slideshow({
-  //   clickable: false,
-  //   autoplay: true,
-  //   interval: 5000
-  // });
-  
-  // $('a.fancybox').fancybox();
-  // $("a.grouped_elements").fancybox();
-  
   $("a[rel^='prettyPhoto']").prettyPhoto({
       theme: 'facebook',
       animation_speed: 'fast',
@@ -60,10 +45,5 @@ $(document).ready(function() {
             </div> \
           </div> \
           <div class="pp_overlay"></div>',
-    });
-  $.localScroll({
-      hash: true,
-      duration: 500,
-      easing: 'swing'
     });
 })
