@@ -1,0 +1,5 @@
+production:
+  database: vsvsvs_production
+  adapter: mysql2
+  username: vsvsvs
+  password: 1something***else

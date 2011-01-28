@@ -1,0 +1,25 @@
+.dragger {
+  width: 28px;
+  height: 28px;
+  cursor: move; }
+
+.dragger:hover {
+  background: url(/images/comfortable_mexican_sofa/icon_move.gif); }
+
+.something {
+  width: 50px; }
+
+ul.gallery {
+  width: 780px;
+  margin: 20px auto;
+  overflow: hidden; }
+  ul.gallery li {
+    border: 1px solid #cccccc;
+    float: left;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 10px; }
+    ul.gallery li .photo {
+      width: 130px;
+      height: 130px; }

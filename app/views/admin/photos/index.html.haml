@@ -1,0 +1,36 @@
+/ - content_for :head do
+/   %script{:src => "/javascripts/comfortable_mexican_sofa/plupload/plupload.full.min.js", :type => 'text/javascript'}
+
+/ = link_to span_tag("Add new photo"), new_admin_gallery_photo_path(@gallery), :class => 'big_button'
+
+      
+%h1 Photos in #{@gallery.title}
+
+/ #file_container
+/   
+/   %br/
+/   %a#pickfiles{:href => "#"} [Select files]
+/   %a#uploadfiles{:href => "#"} [Upload files]
+/   
+/ %br/
+
+#file_container.box
+  #filelist No runtime found.
+  %br/
+  .actions
+    %button#pickfiles{:href => "#"} Select Files
+    %button#uploadfiles{:href => "#"} Upload Files
+  %br/
+  #uploaded_files
+    %ul.gallery#gallery_photos
+      - @gallery.photos.each do |photo|
+        = render :partial => 'admin/photos/file', :object => photo
+      
+      
+/ %a#deletefiles{:href => "#"} [delete all files]
+/ %br/
+
+
+
+/ = sortable_element('gallery_photos', :url => sort_admin_gallery_photos_path(@gallery), :constraint => :horizontal, :handle => 'handle')
+/ = link_to 'delete', admin_gallery_photo_path(@gallery, photo), :method => :delete, :confirm => 'Are you sure?'

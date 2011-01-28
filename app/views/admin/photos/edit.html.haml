@@ -1,0 +1,4 @@
+%h1 Editing Photo
+
+= cms_form_for @photo, :url => admin_gallery_photo_path(@gallery, @photo), :html => {:multipart => true} do |form|
+  = render :partial => form

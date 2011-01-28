@@ -1,0 +1,23 @@
+= link_to span_tag("Add new gallery"), new_admin_gallery_path, :class => 'big_button'
+
+%h1 Galleries
+
+= will_paginate @gallery
+
+%table.formatted
+  %tr
+    %th.main Title
+    %th Slug
+    %th Embed Code
+    %th Action
+  - @galleries.each do |gallery|
+    %tr
+      %td.main= link_to gallery.title, admin_gallery_photos_path(gallery)
+      %td= gallery.slug
+      %td= "{{cms:helper:render_gallery:#{gallery.slug}}}"
+      %td.actions
+        = link_to "Edit", edit_admin_gallery_path(gallery)
+        |
+        = link_to "Delete", admin_gallery_path(gallery), :method => :delete, :confirm => "Are you sure?"
+
+= will_paginate @gallery

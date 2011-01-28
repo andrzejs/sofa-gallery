@@ -1,0 +1,5 @@
+= form.text_field :title, :id => @gallery.new_record? ? 'slugify' : nil
+= form.text_field :slug, :id => 'slug'
+= form.text_area :description
+
+= form.submit 'Save'

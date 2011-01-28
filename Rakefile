@@ -15,7 +15,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "cms_gallery"
   gem.homepage = "http://github.com/stephenmmcleod/cms_gallery"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
+  gem.summary = %Q{CMS Gallery is an easy to use, super simple gallery plugin for Comfortable Mexican Sofa.}
   gem.description = %Q{TODO: longer description of your gem}
   gem.email = "stephen@theworkinggroup.ca"
   gem.authors = ["Stephen McLeod"]

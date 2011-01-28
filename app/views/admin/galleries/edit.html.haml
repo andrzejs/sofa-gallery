@@ -1,0 +1,4 @@
+%h1 Editing #{@gallery.title}
+
+= cms_form_for @gallery, :url => admin_gallery_path(@gallery) do |form|
+  = render :partial => 'form', :locals => {:form => form }

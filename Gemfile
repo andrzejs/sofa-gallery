@@ -1,7 +1,9 @@
 source "http://rubygems.org"
-# Add dependencies required to use your gem here.
-# Example:
-#   gem "activesupport", ">= 2.3.5"
+gem 'rails',                      '3.0.3'
+gem 'mysql2'
+gem 'haml',                       '3.0.25'
+gem 'comfortable_mexican_sofa',   '1.0.37'
+gem 'will_paginate',              '2.3.15'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

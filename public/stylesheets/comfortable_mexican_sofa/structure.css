@@ -1,0 +1,323 @@
+/* -- Containers --------------------------------------------------------- */
+html, body {
+  height: 100%;
+  background: url(/images/comfortable_mexican_sofa/body_bg.jpg);
+}
+.body_wrapper {
+  height: 100%;
+}
+.left_column {
+  width: 175px;
+  float: left;
+}
+.center_column {
+  margin: 0px 250px 0px 175px;
+  min-height: 100%;
+  background-color: #ececec;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 3px #000;
+  -moz-box-shadow: inset 0px 0px 3px #000;
+  -webkit-box-shadow: inset 0px 0px 3px #000;
+}
+.center_column_content {
+  padding: 25px;
+}
+.right_column {
+  width: 250px;
+  float: right;
+}
+.right_column_content {
+  padding: 25px 10px;
+  width: 230px;
+  position: fixed;
+}
+.left_column_content {
+  padding: 25px 0px 25px 10px;
+  width: 165px;
+  position: fixed;
+}
+.left_column_content a {
+  display: block;
+  background-color: #fff;
+  padding: 0px 10px;
+  margin-bottom: 5px;
+  font: 15px/25px Georgia, serif;
+  color: #1C1F22;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px ;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  opacity: 0.8;
+}
+.left_column_content a:hover,
+.left_column_content a.active {
+  opacity: 1;
+}
+/* -- Right Column ------------------------------------------------------- */
+.right_column_content .box {
+  background-color: #ececec;
+  padding: 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+#page_save button {
+  float: right;
+}
+#page_save label {
+  line-height: 20px;
+  padding-left: 5px;
+}
+#page_save input {
+  margin-right: 5px;
+}
+
+#file_uploads .actions {
+  overflow: hidden;
+}
+#file_uploads .actions button {
+  float: right;
+}
+#file_uploads #uploaded_files {
+  max-height: 500px;
+  overflow-y: auto;
+}
+#file_uploads #uploaded_files .file {
+  position: relative;
+  overflow: hidden;
+  font-size: 11px;
+  background-color: #fff;
+  margin-top: 2px;
+  opacity: 0.8;
+}
+#file_uploads #uploaded_files .file.pending {
+  opacity: 0.3;
+}
+#file_uploads #uploaded_files .file:hover {
+  opacity: 1;
+}
+#file_uploads #uploaded_files .file:hover a {
+  color: #000;
+}
+#file_uploads #uploaded_files .file a.delete {
+  position: absolute;
+  display: block;
+  right: 0px;
+  top: 0px;
+  height: 13px;
+  width: 13px;
+  font-weight: bold;
+}
+#file_uploads #uploaded_files .file:hover a.delete {
+  color: #9e0b0f;
+}
+
+/* -- Common Elements ---------------------------------------------------- */
+.flash {
+  text-align: center;
+  line-height: 25px;
+  color: #fff;
+  background-color: #066B12;
+  margin: 0px 2px;
+}
+.flash.error {
+  background-color: #9e0b0f;
+}
+.big_button {
+  float: right;
+  padding: 6px 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: url(/images/comfortable_mexican_sofa/body_bg.jpg);
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+.big_button span {
+  color: #fff;
+}
+
+/* -- Forms -------------------------------------------------------------- */
+.form_element {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.form_element .label {
+  width: 137px;
+  float: left;
+  text-align: right;
+  font: 15px/21px Georgia, serif;
+  text-shadow: #fff 1px 1px;
+  padding-right: 10px;
+  background-color: #e0e0e0;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px ;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-right: 3px solid #bbb;
+}
+.form_element .value {
+  margin-left: 160px;
+}
+.form_element .value input[type='text'],
+.form_element .value input[type='password'],
+.form_element .value textarea,
+.form_element .value select {
+  width: 98%;
+}
+.form_element .value input[type='text'],
+.form_element .value input[type='password'],
+.form_element .value select,
+.form_element .value textarea {
+  border: 1px solid #ccc;
+  padding: 2px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.form_element .value textarea {
+  height: 300px;
+}
+.form_element.submit_element {
+  margin-left: 160px;
+}
+.form_element.check_box_element input {
+  width: auto;
+}
+.page_form_extras {
+  margin-bottom: 25px;
+}
+.form_element.cms_tag_field_datetime .label,
+.form_element.cms_tag_field_integer .label,
+.form_element.cms_tag_field_string .label,
+.form_element.cms_tag_field_text .label {
+  border-color: #48699C;
+}
+.form_element.cms_tag_page_datetime .label,
+.form_element.cms_tag_page_integer .label,
+.form_element.cms_tag_page_string .label,
+.form_element.cms_tag_page_text .label,
+.form_element.cms_tag_page_rich_text .label {
+  border-color: #3F7300;
+}
+.form_error {
+  background-color: #9e0b0f;
+  font-size: 14px;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.form_element .value .field_with_errors input,
+.form_element .value .field_with_errors textarea {
+  border-color: #9e0b0f;
+}
+.form_element.form_save {
+  background-color: #E0E0E0;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  padding: 5px 0px;
+}
+.form_element.form_save label {
+  margin: 0px 5px;
+}
+
+/* -- Listings ----------------------------------------------------------- */
+ul.list li .item {
+  overflow: hidden;
+  padding: 5px;
+  border-bottom: 1px solid #fff;
+}
+ul.list li .icon {
+  width: 28px;
+  height: 28px;
+  background: url(/images/comfortable_mexican_sofa/icon_regular.gif);
+  float: left;
+}
+ul.list li .action_links {
+  float: right;
+  opacity: 0.1;
+}
+table.formatted td.action_links a {
+  opacity: 0.1;
+}
+ul.list .action_links a,
+table.formatted td.action_links a {
+  margin-left: 3px;
+  background-color: #272A2D;
+  color: #fff;
+  padding: 3px 5px;
+  font-size: 9px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+ul.list li .label,
+table.formatted td .label {
+  margin-left: 35px;
+  font: 16px/18px Georgia, serif;
+  color: #1C1F22;
+}
+table.formatted td .label {
+  margin-left: 0px;
+}
+ul.list li .label .sublabel {
+  margin-left: 15px;
+  font: 11px/14px Arial, sans-serif;
+  color: #1C1F22;
+}
+ul.list li ul {
+  margin-left: 30px;
+}
+ul.list li .item:hover,
+table.formatted tr:hover td {
+  background-color: #fff;
+}
+ul.list li .item:hover .action_links,
+table.formatted tr:hover td.action_links a {
+  opacity: 1;
+}
+table.formatted {
+  clear: both;
+}
+table.formatted th {
+  background: url(/images/comfortable_mexican_sofa/body_bg.jpg);
+  color: #ececec;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+table.formatted th,
+table.formatted td {
+  white-space: nowrap;
+  vertical-align: top;
+  padding: 5px;
+  border-bottom: 1px solid #fff;
+}
+table.formatted th.main,
+table.formatted td.main {
+  width: 100%;
+  white-space: normal;
+}
+.pagination {
+  margin: 10px 0px;
+}
+.pagination span,
+.pagination em,
+.pagination a {
+  padding: 2px 5px;
+  margin-right: 2px;
+  background-color: #fff;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+.pagination span {
+  color: #ececec;
+}
+.pagination em {
+  background-color: #1C1F22;
+  color: #fff;
+}
+form.search {
+  float: right;
+  margin: 5px 0px;
+}

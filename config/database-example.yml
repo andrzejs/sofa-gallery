@@ -1,0 +1,9 @@
+development: &development
+  adapter: mysql2
+  username: steven
+  password: 1something***else
+  database: vsvsvs_development
+
+test:
+  <<: *development
+  database: vsvsvs_test

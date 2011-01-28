@@ -1,0 +1,11 @@
+.p-home .group .half {
+  width: 470px; }
+  .p-home .group .half .content-box {
+    padding: 20px;
+    min-height: 150px; }
+
+.signup {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  text-align: center; }

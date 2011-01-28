@@ -1,0 +1,109 @@
+a {
+  color: #ed145b;
+  text-decoration: none; }
+
+a:hover {
+  color: #7a0026; }
+
+input[type=text] {
+  border: none;
+  padding: 5px;
+  width: 300px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
+input[type=text]:focus {
+  outline-width: 0;
+  background: #eeeeee; }
+
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  background: white;
+  color: black;
+  text-transform: uppercase;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
+.button:hover {
+  background: #ed145b;
+  color: white; }
+
+.group {
+  overflow: hidden;
+  margin: auto; }
+  .group .column {
+    float: left; }
+  .group .column + .column {
+    margin-left: 20px; }
+  .group .third {
+    width: 280px; }
+  .group .two-thirds {
+    width: 660px; }
+  .group .quarter {
+    width: 210px; }
+  .group .half {
+    width: 460px; }
+
+.group.content-box .third {
+  width: 260px; }
+.group.content-box .two-thirds {
+  width: 640px; }
+
+.group + .group {
+  margin-top: 10px; }
+
+.shadowed {
+  -moz-box-shadow: 0px 0px 10px #cccccc;
+  -webkit-box-shadow: 0px 0px 10px #cccccc;
+  box-shadow: 0px 0px 10px #cccccc;
+  margin: 10px; }
+
+.align-left {
+  float: left; }
+
+.align-right {
+  float: right; }
+
+.text-box {
+  background: #f2f1f1;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  font-family: "Raleway", arial, serif;
+  padding: 20px;
+  color: black;
+  font-size: 1.5em;
+  text-align: justify;
+  margin-bottom: 20px; }
+
+.sidebar-img {
+  width: 220px;
+  margin: 0 0 0px 0;
+  padding: 20px; }
+  .sidebar-img img {
+    width: 240px; }
+
+#main .content ul.gallery {
+  padding-left: 0;
+  margin: 20px auto;
+  width: 600px;
+  overflow: hidden;
+  list-style: none; }
+  #main .content ul.gallery li {
+    float: left;
+    padding: 5px;
+    text-align: center;
+    margin: 0 10px 10px 0;
+    border: none; }
+    #main .content ul.gallery li .photo {
+      width: 130px;
+      height: 130px; }
+      #main .content ul.gallery li .photo img {
+        border: 3px solid black;
+        padding: 2px; }
+      #main .content ul.gallery li .photo img:hover {
+        border: 3px solid white; }

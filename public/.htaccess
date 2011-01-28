@@ -1,0 +1,5 @@
+Options +Includes 
+Options +FollowSymLinks 
+RewriteEngine on 
+RewriteCond %{HTTP_HOST} !^(www\.vsvsvs\.org)?$ 
+RewriteRule (.*) http://vsvsvs.org/$1 [R=301,L]
