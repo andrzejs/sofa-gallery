@@ -1,8 +1,0 @@
-- if @photo.image?
-  = form.simple_field 'Current Image' do
-    = image_tag(@photo.image.url(:medium))
-
-= form.file_field :image
-= form.text_area :description
-  
-= form.submit 'Save'

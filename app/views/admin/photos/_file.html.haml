@@ -1,8 +1,0 @@
-%li{:id => dom_id(file), :class => 'file'}
-  .photo
-    = image_tag(file.image.url(:thumb), :class => 'handle')
-  .actions
-    = link_to 'edit', edit_admin_gallery_photo_path(@gallery, file)
-    |
-    = link_to span_tag('delete'), admin_gallery_photo_path(@gallery, file), :method => :delete, :remote => true, :class => 'delete'
-/ , :confirm => 'Are you sure?'

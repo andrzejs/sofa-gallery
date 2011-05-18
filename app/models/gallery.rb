@@ -1,12 +1,16 @@
-class Gallery < ActiveRecord::Base  
-  # -- Validations ----------------------------------------------------------
+class Gallery < ActiveRecord::Base
   
-  validates_presence_of :title, :slug
-  validates_uniqueness_of :slug
-  validates_format_of     :slug,
-    :with   => /^\w[a-z0-9_-]*$/i
-  
-  # -- Relationships --------------------------------------------------------
+  # == Relationships ========================================================
   
   has_many :photos, :dependent => :destroy
+  
+  # == Validations ==========================================================
+  
+  validates :title, :thumbnail_width, :full_size_width, :full_size_height,
+    :presence => true
+  validates :slug,
+    :presence => true,
+    :uniqueness => true,
+    :format => {:with =>  /^\w[a-z0-9_-]*$/i}
+
 end

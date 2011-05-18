@@ -1,0 +1,25 @@
+<!-- - content_for :head do
+ %script{:src => "/javascripts/comfortable_mexican_sofa/plupload/plupload.full.min.js", :type => 'text/javascript'} -->
+
+      
+<h1>Photos in <%=@gallery.title%></h1>
+
+<div class='box' id='file_container'>
+  <div id='filelist'>No runtime found.</div>
+  <br />
+  <div class='actions'>
+    <button href='#' id='pickfiles'>Select Files</button>
+    <button href='#' id='uploadfiles'>Upload Files</button>
+  </div>
+
+  <br />
+  <div id='uploaded_files'>
+    <ul class='gallery sortable' id='gallery_photos'>
+      <% @gallery.photos.each do |photo|%>
+        <%= render :partial => 'cms_admin/photos/file', :object => photo %>
+      <% end -%>
+    </ul>
+  </div>
+</div>
+
+<%= link_to "Delete All Files", "#", :id => "deletefiles" %>

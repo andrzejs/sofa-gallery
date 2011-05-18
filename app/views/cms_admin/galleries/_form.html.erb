@@ -1,0 +1,9 @@
+<%= form.text_field :title, :id => @gallery.new_record? ? 'slugify' : nil%>
+<%= form.text_field :slug, :id => 'slug'%>
+<%= form.text_area :description%>
+<%= form.text_field :url%>
+<%= form.text_field :thumbnail_width%>
+<%= form.text_field :full_size_width%>
+<%= form.text_field :full_size_height%>
+<%= form.check_box :crop_full_size%>
+<%= form.submit 'Save'%>

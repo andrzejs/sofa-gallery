@@ -1,10 +1,16 @@
-VSVSVS::Application.routes.draw do
+# if defined?(CmsGallery::Application)
 
-  namespace :admin, :path => 'admin' do
+Rails.application.routes.draw do
+  namespace :cms_admin, :path => ComfortableMexicanSofa.config.admin_route_prefix do
     resources :galleries do
-      resources :photos,
-        :collection => { :sort => :post }
+      resources :photos do
+        collection do
+          match :reorder
+        end
+      end
     end
-  end
+  end unless ComfortableMexicanSofa.config.admin_route_prefix.blank?
   
+  resources :photos,
+    :only => [:show]
 end

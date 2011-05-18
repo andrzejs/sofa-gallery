@@ -1,0 +1,10 @@
+<li id="<%= dom_id(file)%>" class="file">
+  <div class="photo">
+    <%= image_tag(file.image.url(:thumbnail), :class => 'handle')%>
+    <div class="actions">
+      <%= link_to 'edit', edit_cms_admin_gallery_photo_path(@gallery, file)%>
+      |
+      <%= link_to span_tag('delete'), cms_admin_gallery_photo_path(@gallery, file), :method => :delete, :remote => true, :class => 'delete', :confirm => 'Are you sure?'%>
+    </div>
+  </div>
+</li>

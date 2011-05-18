@@ -29,8 +29,6 @@ Gem::Specification.new do |s|
     "app/controllers/application_controller.rb",
     "app/models/gallery.rb",
     "app/models/photo.rb",
-    "app/views/admin/_html_head.html.haml",
-    "app/views/admin/_navigation.html.haml",
     "app/views/admin/galleries/_form.html.haml",
     "app/views/admin/galleries/edit.html.haml",
     "app/views/admin/galleries/index.html.haml",
@@ -91,14 +89,10 @@ Gem::Specification.new do |s|
     "public/images/prettyPhoto/light_square/loader.gif",
     "public/images/prettyPhoto/light_square/sprite--.png",
     "public/images/prettyPhoto/light_square/sprite.png",
-    "public/javascripts/admin.js",
-    "public/javascripts/application.js",
     "public/javascripts/jquery.js",
     "public/javascripts/jquery.pretty_photo.js",
     "public/robots.txt",
     "public/stylesheets/.gitkeep",
-    "public/stylesheets/admin.css",
-    "public/stylesheets/common.css",
     "public/stylesheets/pretty_photo.css",
     "script/rails",
     "test/fixtures/galleries.yml",
@@ -131,32 +125,29 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rails>, ["= 3.0.3"])
+      s.add_runtime_dependency(%q<rails>, [">= 3.0.3"])
       s.add_runtime_dependency(%q<mysql2>, [">= 0"])
-      s.add_runtime_dependency(%q<haml>, ["= 3.0.25"])
-      s.add_runtime_dependency(%q<comfortable_mexican_sofa>, ["= 1.0.37"])
-      s.add_runtime_dependency(%q<will_paginate>, ["= 2.3.15"])
+      s.add_runtime_dependency(%q<haml>, [">= 3.0.25"])
+      s.add_runtime_dependency(%q<comfortable_mexican_sofa>, [">= 1.0.37"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
-      s.add_dependency(%q<rails>, ["= 3.0.3"])
+      s.add_dependency(%q<rails>, [">= 3.0.3"])
       s.add_dependency(%q<mysql2>, [">= 0"])
-      s.add_dependency(%q<haml>, ["= 3.0.25"])
-      s.add_dependency(%q<comfortable_mexican_sofa>, ["= 1.0.37"])
-      s.add_dependency(%q<will_paginate>, ["= 2.3.15"])
+      s.add_dependency(%q<haml>, [">= 3.0.25"])
+      s.add_dependency(%q<comfortable_mexican_sofa>, [">= 1.0.37"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<rails>, ["= 3.0.3"])
+    s.add_dependency(%q<rails>, [">= 3.0.3"])
     s.add_dependency(%q<mysql2>, [">= 0"])
-    s.add_dependency(%q<haml>, ["= 3.0.25"])
-    s.add_dependency(%q<comfortable_mexican_sofa>, ["= 1.0.37"])
-    s.add_dependency(%q<will_paginate>, ["= 2.3.15"])
+    s.add_dependency(%q<haml>, [">= 3.0.25"])
+    s.add_dependency(%q<comfortable_mexican_sofa>, [">= 1.0.37"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.2"])

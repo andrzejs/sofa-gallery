@@ -1,8 +1,8 @@
-HOST_NAME   = 'vsvsvs.org'
+HOST_NAME   = 'test.local'
 SITE_URL    = "http://#{HOST_NAME}"
-ADMIN_EMAIL = 'stephen@vsvsvs.com'
+ADMIN_EMAIL = 'admin@site.com'
 
-VSVSVS::Application.configure do
+CmsGallery::Application.configure do
   
   config.cache_classes                      = true
   config.consider_all_requests_local        = false

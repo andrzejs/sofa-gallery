@@ -1,0 +1,24 @@
+<%= link_to span_tag("Add new gallery"), new_cms_admin_gallery_path, :class => 'big button' %>
+
+<h1>Galleries</h1>
+
+<table class="formatted">
+  <tr>
+    <th class="main">Title</th>
+    <th>Slug</th>
+    <th>Embed Code</th>
+    <th>Action</th>
+  </tr>
+  <% @galleries.each do |gallery| %>
+    <tr>
+      <td class="main"><%= link_to gallery.title, cms_admin_gallery_photos_path(gallery) %></td>
+      <td><%= gallery.slug %></td>
+      <td><%= "{{cms:helper:render_gallery:#{gallery.slug}}}" %></td>
+      <td class="actions">
+        <%= link_to "Edit", edit_cms_admin_gallery_path(gallery) %>
+        |
+        <%= link_to "Delete", cms_admin_gallery_path(gallery), :method => :delete, :confirm => "Are you sure?" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

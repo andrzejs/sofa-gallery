@@ -1,7 +1,19 @@
-
-
 module CmsGallery
-  require 'cms_gallery/engine'
-  ComfortableMexicanSofa::ViewHooks.add(:navigation, '/admin/navigation')
-  ComfortableMexicanSofa::ViewHooks.add(:html_head, '/admin/html_head')
+  require 'cms_gallery/engine' if defined?(Rails)
+  require 'cms_gallery/view_methods'
+  require 'cms_gallery/configuration'
+  # require 'cms_gallery/gallery'
+  
+  class << self
+    
+    def configure
+      yield configuration
+    end
+    
+    def configuration
+      @configuration ||= Configuration.new
+    end
+    alias :config :configuration
+    
+  end
 end
