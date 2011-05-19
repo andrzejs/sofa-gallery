@@ -1,6 +1,6 @@
 class CmsAdmin::PhotosController < CmsAdmin::BaseController
   before_filter :load_gallery
-  before_filter :load_photo,  :except => [:index, :new, :create, :sort]
+  before_filter :load_photo,  :only => [:edit, :update, :destroy]
   before_filter :build_photo, :only   => [:new, :create]
 
   def index
@@ -35,18 +35,10 @@ class CmsAdmin::PhotosController < CmsAdmin::BaseController
     @photo.destroy
   end
   
-  def sort
-    params[:gallery_photos].each_with_index do |photo_id, i|
-      photo = Photo.find_by_id(photo_id)
-      Photo.update_all(["position = %d", i], ["id = %d", photo_id])
-    end
-    render :nothing => true
-  end
-  
   def reorder
-    (params[:cms_page] || []).each_with_index do |id, index|
-      if (cms_page = Cms::Page.find_by_id(id))
-        cms_page.update_attribute(:position, index)
+    (params[:photo] || []).each_with_index do |id, index|
+      if (photo = Photo.find_by_id(id))
+        photo.update_attribute(:position, index)
       end
     end
     render :nothing => true

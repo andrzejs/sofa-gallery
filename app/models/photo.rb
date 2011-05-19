@@ -27,11 +27,15 @@ class Photo < ActiveRecord::Base
   # -- Relationships --------------------------------------------------------
   
   belongs_to :gallery, :class_name => 'Gallery'
-  # after_create :update_position
+  
+  # -- Callbacks ------------------------------------------------------------
+  
+  before_validation :assign_position,
+                    :on => :create
   
   # -- Named Scope ----------------------------------------------------------
   
-  default_scope :order => "position"
+  default_scope order(:position)
   
   scope :top, lambda { |limit|
     { :limit => limit }
@@ -41,8 +45,10 @@ class Photo < ActiveRecord::Base
   attr_protected :image_file_name, :image_content_type, :image_size
   
 private
-  def update_position
-    self.position = self.gallery.photos
+  
+  def assign_position
+    max = self.gallery.photos.maximum(:position)
+    self.position = max ? max + 1 : 0
   end
   
 end

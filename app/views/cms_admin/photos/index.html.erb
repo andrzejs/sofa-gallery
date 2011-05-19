@@ -5,7 +5,7 @@
 <h1>Photos in <%=@gallery.title%></h1>
 
 <div class='box' id='file_container'>
-  <div id='filelist'>No runtime found.</div>
+  <div id='filelist'></div>
   <br />
   <div class='actions'>
     <button href='#' id='pickfiles'>Select Files</button>
@@ -14,12 +14,10 @@
 
   <br />
   <div id='uploaded_files'>
-    <ul class='gallery sortable' id='gallery_photos'>
+    <ul class='gallery sortable_photos' id='gallery_photos'>
       <% @gallery.photos.each do |photo|%>
         <%= render :partial => 'cms_admin/photos/file', :object => photo %>
       <% end -%>
     </ul>
   </div>
 </div>
-
-<%= link_to "Delete All Files", "#", :id => "deletefiles" %>

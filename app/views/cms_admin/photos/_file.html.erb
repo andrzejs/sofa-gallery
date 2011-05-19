@@ -1,6 +1,6 @@
 <li id="<%= dom_id(file)%>" class="file">
-  <div class="photo">
-    <%= image_tag(file.image.url(:thumbnail), :class => 'handle')%>
+  <div class="photo photo_dragger">
+    <%= image_tag(file.image.url(:thumbnail))%>
     <div class="actions">
       <%= link_to 'edit', edit_cms_admin_gallery_photo_path(@gallery, file)%>
       |

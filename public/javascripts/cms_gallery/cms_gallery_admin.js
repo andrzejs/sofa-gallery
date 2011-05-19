@@ -4,9 +4,19 @@ $.CMS_Gallery = function(){
   
   $(document).ready(function(){
     if($('#file_container').get(0))  $.CMS_Gallery.enable_photo_uploader();
+    $.CMS_Gallery.enable_sortable_list();
   });
   
   return {
+    enable_sortable_list: function(){
+      $('ul.sortable_photos, ul.sortable_photos ul').sortable({
+        handle: 'div.photo_dragger',
+        axis: 'xy',
+        update: function(){
+          $.post(current_path + '/reorder', '_method=put&'+$(this).sortable('serialize'));
+        }
+      })
+    },
     enable_photo_uploader : function(){
       var photos_path = '/' + current_path.split('/')[1] + '/' +
                        current_path.split('/')[2] + '/' +
@@ -24,9 +34,6 @@ $.CMS_Gallery = function(){
          url:              photos_path
       });
 
-      uploader.bind('Init', function(up, params) {
-        $('#filelist').html("<div>Current runtime: " + params.runtime + "</div>");
-      });
 
       $('#uploadfiles').click(function(e) {
         uploader.start();
