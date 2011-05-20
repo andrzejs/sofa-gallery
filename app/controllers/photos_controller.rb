@@ -6,6 +6,12 @@ class PhotosController < ApplicationController
     render
   end
   
+  def random_photo
+    @photo = Photo.random(params[:gallery_id])
+  rescue ActiveRecord::RecordNotFound
+    render :text => 'No Photos found.', :status => 404
+  end
+  
 protected
 
   def load_photo

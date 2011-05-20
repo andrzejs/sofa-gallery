@@ -14,4 +14,5 @@ group :test do
   gem "shoulda", ">= 0"
   gem 'sqlite3'
   gem "jeweler", "~> 1.5.2"
+  # gem 'cover_me'
 end

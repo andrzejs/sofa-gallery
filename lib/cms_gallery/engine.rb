@@ -9,7 +9,6 @@ module CmsGallery
       ComfortableMexicanSofa::ViewHooks.add(:html_head, '/cms_admin/cms_gallery_html_head')
       
       ActionView::Base.send(:include, CmsGallery::ViewMethods)
-      
     end
   end
 end

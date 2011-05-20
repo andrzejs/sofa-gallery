@@ -2,7 +2,6 @@ module CmsGallery
   require 'cms_gallery/engine' if defined?(Rails)
   require 'cms_gallery/view_methods'
   require 'cms_gallery/configuration'
-  # require 'cms_gallery/gallery'
   
   class << self
     

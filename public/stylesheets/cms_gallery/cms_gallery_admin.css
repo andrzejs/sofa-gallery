@@ -4,11 +4,13 @@ ul.gallery {
   overflow: hidden; }
   ul.gallery li {
     border: 1px solid #cccccc;
+    background: #D8D8D8;
     float: left;
     padding: 5px;
     text-align: center;
     margin-right: 10px;
-    margin-bottom: 10px; }
+    margin-bottom: 10px; 
+    cursor: move }
     ul.gallery li .photo {
       width: 130px;
       height: 130px; }

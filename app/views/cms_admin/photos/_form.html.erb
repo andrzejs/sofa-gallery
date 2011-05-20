@@ -1,5 +1,6 @@
 <%= form.text_field :title, :id => @photo.new_record? ? 'slugify' : nil%>
 <%= form.text_field :slug, :id => 'slug'%>
+<%= form.text_field :url%>
 <% if @photo.image?%>
   <%= form.simple_field 'Current Image' do%>
     <%= image_tag(@photo.image.url(:thumbnail))%>

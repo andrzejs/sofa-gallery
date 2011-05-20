@@ -1,4 +1,5 @@
 class CmsAdmin::PhotosController < CmsAdmin::BaseController
+  
   before_filter :load_gallery
   before_filter :load_photo,  :only => [:edit, :update, :destroy]
   before_filter :build_photo, :only   => [:new, :create]
@@ -26,7 +27,7 @@ class CmsAdmin::PhotosController < CmsAdmin::BaseController
   def update
     @photo.update_attributes!(params[:photo])
     flash[:notice] = 'Photo was successfully updated.'
-    redirect_to admin_gallery_photos_path(@gallery)
+    redirect_to cms_admin_gallery_photos_path(@gallery)
   rescue ActiveRecord::RecordInvalid
     render :action => :edit
   end
@@ -61,4 +62,5 @@ protected
   def build_photo
     @photo = @gallery.photos.new(params[:photo])
   end
+  
 end

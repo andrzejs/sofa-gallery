@@ -1,16 +1,10 @@
 module CmsGallery::ViewMethods
-  def render_gallery(slug, type)
+  def render_gallery(slug, type = 'thumbnails')
     @gallery = Gallery.find_by_slug(slug)
     if (@gallery)
-      if (type == 'carousel')
-        render :partial => 'content/carousel'
-      elsif (type == 'thumbnails_with_lightbox')
-        render :partial => 'content/thumbnails'
-      else
-        render :text => 'Gallery type not found.'
-      end
+      render :partial => "content/#{type}"
     else
-      render :text => 'Gallery not found.'
+      render :text => 'Gallery not found.', :status => 404
     end
   end
 end

@@ -1,7 +1,5 @@
 class Photo < ActiveRecord::Base
   
-  #TODO: update position on create
-  
   # -- AR Extensions --------------------------------------------------------
     
   has_attached_file :image,  
