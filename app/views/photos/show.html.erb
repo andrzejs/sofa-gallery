@@ -1,8 +1,3 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag :cms_gallery %>
-  <%= javascript_include_tag :cms_gallery %>
-<% end %>
-
 <% if @photo %>
   <div class="photo-box">
     <%= image_tag(@photo.image.url(:full), :alt => @photo.description) %>

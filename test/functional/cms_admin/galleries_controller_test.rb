@@ -23,7 +23,7 @@ class CmsAdmin::GalleriesControllerTest < ActionController::TestCase
       }
     end
     assert_equal 'Gallery was successfully created.', flash[:notice]
-    assert_redirected_to admin_galleries_path
+    assert_redirected_to cms_admin_galleries_path
   end
 
   def test_create_fail
@@ -46,7 +46,7 @@ class CmsAdmin::GalleriesControllerTest < ActionController::TestCase
     gallery.reload
     assert_equal 'New Title', gallery.title
     assert_equal 'Gallery was successfully updated.', flash[:notice]
-    assert_redirected_to admin_galleries_path
+    assert_redirected_to cms_admin_galleries_path
   end
 
   def test_update_fail
@@ -60,7 +60,7 @@ class CmsAdmin::GalleriesControllerTest < ActionController::TestCase
       delete :destroy, :id => galleries(:default)
     end
     assert_equal 'Gallery was successfully deleted.', flash[:notice]
-    assert_redirected_to admin_galleries_path
+    assert_redirected_to cms_admin_galleries_path
   end
   
 end

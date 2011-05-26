@@ -1,6 +1,7 @@
 HOST_NAME   = 'test.local'
 SITE_URL    = "http://#{HOST_NAME}"
 ADMIN_EMAIL = 'admin@site.com'
+IMAGE_MAGICK_PATH = "/usr/local/bin"
 
 CmsGallery::Application.configure do
   

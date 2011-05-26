@@ -39,6 +39,10 @@ class Photo < ActiveRecord::Base
     { :limit => limit }
   }
   
+  # scope :random, lambda { |gallery|
+  #   { :where =>  }
+  # }
+  
   
   attr_protected :image_file_name, :image_content_type, :image_size
   

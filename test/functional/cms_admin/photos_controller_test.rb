@@ -15,26 +15,36 @@ class CmsAdmin::PhotosControllerTest < ActionController::TestCase
   end
 
   def test_create
-    assert_difference 'Photo.count' do
-      post :create, :gallery_id => galleries(:default), :photo => {
-        :image        => fixture_file_upload('images/test_image.jpg', 'image/jpeg'),
-        :description  => 'New Description'
+    photo = photos(:default)
+    assert_difference 'Photo.count', 1 do
+      xhr :post, :create, :gallery_id => photo.gallery, :id => photo, :photo => {
+          :image        => fixture_file_upload('images/test_image.jpg', 'image/jpeg')
       }
-      
+      assert_response :success
+            # 
+            # post :create, :gallery_id => photo.gallery, :id => photo, :photo => {
+            #     :image        => fixture_file_upload('images/test_image.jpg', 'image/jpeg')
+            # }
+            # assert_response :success
       photo = Photo.order('id DESC').first
       assert photo.image?
-      assert_equal 'New Description', photo.description
       
-      assert_equal 'Photo was successfully created.', flash[:notice]
-      assert_redirected_to admin_gallery_photos_path(galleries(:default))
+      assert assigns(:photo)
+      # assert_equal 'New Description', photo.description
     end
+
+    # assert_difference 'Photo.count' do
+    #   post :create, :gallery_id => galleries(:default), :photo => {
+    #     :image        => fixture_file_upload('images/test_image.jpg', 'image/jpeg'),
+    #     :description  => 'New Description'
+    #   }
+    # end
   end
 
   def test_create_fail
     assert_no_difference 'Photo.count' do
-      post :create, :gallery_id => galleries(:default), :photo => { }
-      assert_response :success
-      assert_template 'new'
+      xhr :post, :create, :gallery_id => galleries(:default), :photo => { }
+      assert_response :bad_request
     end
   end
   
@@ -58,7 +68,7 @@ class CmsAdmin::PhotosControllerTest < ActionController::TestCase
       :description  => 'Updated Description'
     }
     assert_response :redirect
-    assert_redirected_to admin_gallery_photos_path(galleries(:default))
+    assert_redirected_to cms_admin_gallery_photos_path(galleries(:default))
     assert_equal 'Photo was successfully updated.', flash[:notice]
     
     photo.reload
@@ -81,10 +91,8 @@ class CmsAdmin::PhotosControllerTest < ActionController::TestCase
   def test_destroy
     photo = photos(:default)
     assert_difference 'Photo.count', -1 do
-      delete :destroy, :gallery_id => photo.gallery, :id => photo
-      assert_response :redirect
-      assert_redirected_to admin_gallery_photos_path(galleries(:default))
-      assert_equal 'Photo was successfully deleted.', flash[:notice]
+      xhr :delete, :destroy, :gallery_id => photo.gallery, :id => photo
+      assert_response :success
     end
   end
 

@@ -13,7 +13,10 @@ class CmsAdmin::PhotosController < CmsAdmin::BaseController
   end
   
   def create
+    p 'AAAAA', @photo
+    
     @photo = @gallery.photos.create!(:image => params[:file])
+    
     render :partial => 'file', :object => @photo
   rescue ActiveRecord::RecordInvalid
     render :nothing => true, :status => :bad_request
