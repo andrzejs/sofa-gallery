@@ -15,7 +15,6 @@ GEM
       rack-mount (~> 0.6.13)
       rack-test (~> 0.5.6)
       tzinfo (~> 0.3.23)
-    active_link_to (0.0.6)
     activemodel (3.0.3)
       activesupport (= 3.0.3)
       builder (~> 2.1.2)
@@ -31,14 +30,15 @@ GEM
     activesupport (3.0.3)
     arel (2.0.6)
     builder (2.1.2)
-    comfortable_mexican_sofa (1.1.2)
-      active_link_to (>= 0.0.6)
-      mime-types
-      paperclip (>= 2.3.8)
-      rails (>= 3.0.3)
+    configatron (2.8.0)
+      yamler (>= 0.1.0)
+    cover_me (1.0.0)
+      configatron
+      hashie
     erubis (2.6.6)
       abstract (>= 1.0.0)
     git (1.2.5)
+    hashie (1.0.0)
     i18n (0.5.0)
     jeweler (1.5.2)
       bundler (~> 1.0.0)
@@ -80,13 +80,17 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
     will_paginate (3.0.pre2)
+    yamler (0.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  comfortable_mexican_sofa (>= 1.0.51)
+  bundler (~> 1.0.0)
+  cover_me
   jeweler (~> 1.5.2)
+  paperclip (>= 2.3.8)
+  rails
   shoulda
   sqlite3
   will_paginate (~> 3.0.pre2)
