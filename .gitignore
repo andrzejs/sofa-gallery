@@ -18,3 +18,4 @@ docs/
 public/system/
 db/dumps/
 .rvmrc
+log/*
