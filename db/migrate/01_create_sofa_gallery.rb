@@ -1,35 +1,36 @@
 class CreateSofaGallery < ActiveRecord::Migration
   def self.up 
-    create_table :galleries do |t|
-      t.string :title
-      t.string :slug
-      t.text :description
-      t.integer :thumbnail_width, :default => "100"
-      t.integer :full_size_width, :default => "800"
-      t.integer :full_size_height, :default => "400"
-      t.boolean :crop_full_size
+    create_table :sofa_galleries do |t|
+      t.string  :title
+      t.string  :slug
+      t.text    :description
+      t.integer :thumb_max_width,   :null => false, :default => 200
+      t.integer :thumb_max_height,  :null => false, :default => 150
+      t.boolean :is_thumb_cropped,  :null => false, :default => true
+      t.integer :full_max_width,    :null => false, :default => 800
+      t.integer :full_max_height,   :null => false, :default => 600
+      t.boolean :is_full_cropped,   :null => false, :default => true
+      
       t.timestamps
     end
-    add_index :galleries, :slug
+    add_index :sofa_galleries, :slug
     
-    create_table :photos do |t|
-      t.string :title
-      t.string :slug
-      t.string :url
-      t.text :description
+    create_table :sofa_photos do |t|
       t.integer :gallery_id
+      t.string  :title
+      t.string  :slug
+      t.text    :description
       t.integer :position
-      t.string :image_file_name
-      t.string :image_content_type
-      t.integer :image_file_size
+      t.string :photo
+      
       t.timestamps
     end
-    add_index :photos, [ :gallery_id, :position ]
-    add_index :photos, :slug
+    add_index :sofa_photos, [ :gallery_id, :position ]
+    add_index :sofa_photos, :slug
   end
 
   def self.down
-    drop_table :photos
-    drop_table :galleries
+    drop_table :sofa_photos
+    drop_table :sofa_galleries
   end
 end
