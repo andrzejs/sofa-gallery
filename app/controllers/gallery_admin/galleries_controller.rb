@@ -1,4 +1,4 @@
-class CmsAdmin::GalleriesController < CmsAdmin::BaseController
+class GalleryAdmin::GalleriesController < GalleryAdmin::BaseController
   
   before_filter :load_gallery,  :except => [:index, :new, :create]
   before_filter :build_gallery, :only   => [:new, :create]

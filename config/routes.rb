@@ -1,7 +1,6 @@
-# if defined?(CmsGallery::Application)
-
 Rails.application.routes.draw do
-  namespace :cms_admin, :path => CmsGallery.config.admin_route_prefix do
+  
+  namespace :cms_admin, :path => SofaGallery.config.admin_route_prefix do
     resources :galleries do
       resources :photos do
         collection do
@@ -9,8 +8,6 @@ Rails.application.routes.draw do
         end
       end
     end
-  end unless CmsGallery.config.admin_route_prefix.blank?
+  end unless SofaGallery.config.admin_route_prefix.blank?
   
-  resources :photos,
-    :only => [:show]
 end

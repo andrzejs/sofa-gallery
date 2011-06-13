@@ -2,25 +2,25 @@ class Photo < ActiveRecord::Base
   
   # -- AR Extensions --------------------------------------------------------
     
-  has_attached_file :image,  
-    CmsGallery.config.upload_photo_options.merge(:styles => lambda { |attachment| 
-      gallery = attachment.instance.gallery
-      crop = (gallery.crop_full_size ? '#' : '>')
-      full = "#{gallery.full_size_width}x#{gallery.full_size_height}#{crop}"
-      thumb = "#{gallery.thumbnail_width}x#{gallery.thumbnail_width}#"
-      { :full => full,
-        :thumbnail => thumb }
-    })
+  # has_attached_file :image,  
+  #   SofaGallery.config.upload_photo_options.merge(:styles => lambda { |attachment| 
+  #     gallery = attachment.instance.gallery
+  #     crop = (gallery.crop_full_size ? '#' : '>')
+  #     full = "#{gallery.full_size_width}x#{gallery.full_size_height}#{crop}"
+  #     thumb = "#{gallery.thumbnail_width}x#{gallery.thumbnail_width}#"
+  #     { :full => full,
+  #       :thumbnail => thumb }
+  #   })
 
   # -- Validations ----------------------------------------------------------
   
-  validates_attachment_presence :image,
-    :message      => 'There was no file uploaded!'
-  validates_attachment_content_type :image, 
-    :content_type => %w[ image/jpeg image/pjpeg image/gif image/png image/x-png ],
-    :message      => 'Please only upload .jpg, .jpeg, .gif or .png files.'
-  validates_attachment_size :image, 
-    :less_than => 6.megabytes
+  # validates_attachment_presence :image,
+  #   :message      => 'There was no file uploaded!'
+  # validates_attachment_content_type :image, 
+  #   :content_type => %w[ image/jpeg image/pjpeg image/gif image/png image/x-png ],
+  #   :message      => 'Please only upload .jpg, .jpeg, .gif or .png files.'
+  # validates_attachment_size :image, 
+  #   :less_than => 6.megabytes
     
   # -- Relationships --------------------------------------------------------
   

@@ -1,4 +1,4 @@
-class CmsAdmin::PhotosController < CmsAdmin::BaseController
+class GalleryAdmin::PhotosController < GalleryAdmin::BaseController
   
   before_filter :load_gallery
   before_filter :load_photo,  :only => [:edit, :update, :destroy]

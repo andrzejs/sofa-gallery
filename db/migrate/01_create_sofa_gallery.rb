@@ -1,4 +1,4 @@
-class CreateCmsGallery < ActiveRecord::Migration
+class CreateSofaGallery < ActiveRecord::Migration
   def self.up 
     create_table :galleries do |t|
       t.string :title
@@ -26,10 +26,6 @@ class CreateCmsGallery < ActiveRecord::Migration
     end
     add_index :photos, [ :gallery_id, :position ]
     add_index :photos, :slug
-    
-  rescue
-    self.down
-    raise
   end
 
   def self.down

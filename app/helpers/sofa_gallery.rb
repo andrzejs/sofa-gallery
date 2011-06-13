@@ -1,4 +1,5 @@
-module CmsGallery::ViewMethods
+module SofaGallery
+  
   def render_gallery(slug, type = 'thumbnails')
     @gallery = Gallery.find_by_slug(slug)
     if (@gallery)
@@ -7,4 +8,5 @@ module CmsGallery::ViewMethods
       render :text => 'Gallery not found.', :status => 404
     end
   end
+  
 end
