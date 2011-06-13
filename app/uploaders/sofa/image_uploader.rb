@@ -1,10 +1,14 @@
 # encoding: utf-8
-
-class PhotoUploader < CarrierWave::Uploader::Base
+class Sofa::ImageUploader < CarrierWave::Uploader::Base
   
   include CarrierWave::MiniMagick
   
   storage :file
+  
+  # Storage directory
+  def store_dir
+    "uploads/photos/#{model.id}"
+  end
   
   version :thumb do
     process :resize_to_fill => [200, 200]

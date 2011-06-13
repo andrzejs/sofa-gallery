@@ -2,13 +2,19 @@ class Sofa::Photo < ActiveRecord::Base
   
   set_table_name :sofa_photos
   
-  mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, Sofa::ImageUploader
   
   # -- Relationships --------------------------------------------------------
   belongs_to :gallery
   
   # -- Callbacks ------------------------------------------------------------
   before_create :assign_position
+  
+  # -- Validations ----------------------------------------------------------
+  validates :photo,
+    :presence   => true,
+    :integrity  => true,
+    :processing => true
   
   # -- Scopes ---------------------------------------------------------------
   default_scope order(:position)

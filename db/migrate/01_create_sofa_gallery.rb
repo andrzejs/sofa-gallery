@@ -10,7 +10,6 @@ class CreateSofaGallery < ActiveRecord::Migration
       t.integer :full_max_width,    :null => false, :default => 800
       t.integer :full_max_height,   :null => false, :default => 600
       t.boolean :is_full_cropped,   :null => false, :default => true
-      
       t.timestamps
     end
     add_index :sofa_galleries, :slug
@@ -20,9 +19,8 @@ class CreateSofaGallery < ActiveRecord::Migration
       t.string  :title
       t.string  :slug
       t.text    :description
-      t.integer :position
-      t.string :photo
-      
+      t.string  :photo
+      t.integer :position, :null => false, :default => 0
       t.timestamps
     end
     add_index :sofa_photos, [ :gallery_id, :position ]
