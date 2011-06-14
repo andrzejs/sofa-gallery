@@ -1,5 +1,0 @@
-<h1>Editing <%= @gallery.title %></h1>
-
-<%= cms_form_for @gallery, :url => cms_admin_gallery_path(@gallery) do |form|%>
-  <%= render :partial => 'form', :locals => {:form => form }%>
-<% end -%>

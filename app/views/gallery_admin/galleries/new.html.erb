@@ -1,0 +1,5 @@
+<h1>New Gallery</h1>
+
+<%= form_for @gallery, :as => :gallery, :url => { :action => :create } do |form| %>
+  <%= render :partial => form %>
+<% end %>

@@ -1,0 +1,21 @@
+<%= link_to 'Add new gallery', new_gallery_admin_gallery_path, :class => 'big button' %>
+
+<h1>Galleries</h1>
+
+<table class='formatted'>
+  <tr>
+    <th class='main'>Title</th>
+    <th>Slug</th>
+    <th>Action</th>
+  </tr>
+  <% @galleries.each do |gallery| %>
+    <tr>
+      <td class='main'><%= link_to gallery.title, gallery_admin_gallery_photos_path(gallery) %></td>
+      <td><%= gallery.slug %></td>
+      <td class='action_links'>
+        <%= link_to 'Edit', edit_gallery_admin_gallery_path(gallery) %>
+        <%= link_to 'Delete', gallery_admin_gallery_path(gallery), :method => :delete, :confirm => 'Are you sure?' %>
+      </td>
+    </tr>
+  <% end %>
+</table>

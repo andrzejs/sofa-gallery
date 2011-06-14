@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  namespace :cms_admin, :path => SofaGallery.config.admin_route_prefix do
+  namespace :gallery_admin, :path => SofaGallery.config.admin_route_prefix do
     resources :galleries do
       resources :photos do
         collection do

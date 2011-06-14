@@ -1,0 +1,12 @@
+<%= form.text_field :title %>
+<%= form.text_field :slug %>
+<%= form.text_area  :description%>
+
+<%= form.text_field :full_max_width,    :label => 'Full Size Width' %>
+<%= form.text_field :full_max_height,   :label => 'Full Size Height' %>
+<%= form.check_box  :is_full_cropped,   :label => 'Cropped?' %>
+<%= form.text_field :thumb_max_width,   :label => 'Thumb Size Width' %>
+<%= form.text_field :thumb_max_height,  :label => 'Thumb Size Height' %>
+<%= form.check_box  :is_thumb_cropped,  :label => 'Cropped?' %>
+
+<%= form.submit 'Save'%>

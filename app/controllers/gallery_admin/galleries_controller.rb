@@ -4,7 +4,7 @@ class GalleryAdmin::GalleriesController < GalleryAdmin::BaseController
   before_filter :build_gallery, :only   => [:new, :create]
   
   def index
-    @galleries = Gallery.all
+    @galleries = Sofa::Gallery.all
   end
   
   def new
@@ -13,9 +13,10 @@ class GalleryAdmin::GalleriesController < GalleryAdmin::BaseController
   
   def create
     @gallery.save!
-    flash[:notice] = 'Gallery was successfully created.'
+    flash[:notice] = 'Gallery created'
     redirect_to :action => :index   
   rescue ActiveRecord::RecordInvalid
+    flash.now[:error] = 'Failed to create Gallery'
     render :action => :new
   end
   
@@ -29,28 +30,30 @@ class GalleryAdmin::GalleriesController < GalleryAdmin::BaseController
   
   def update
     @gallery.update_attributes!(params[:gallery])
-    flash[:notice] = 'Gallery was successfully updated.'
+    flash[:notice] = 'Gallery updated'
     redirect_to :action => :index
   rescue ActiveRecord::RecordInvalid
+    flash.now[:error] = 'Failed to update Gallery'
     render :action => :edit
   end
   
   def destroy
     @gallery.destroy
-    flash[:notice] = 'Gallery was successfully deleted.'
+    flash[:notice] = 'Gallery deleted'
     redirect_to :action => :index
   end
   
 protected
   
   def load_gallery
-    @gallery = Gallery.find(params[:id])
+    @gallery = Sofa::Gallery.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    render :text => 'Gallery not found', :status => 404
+    flash[:error] = 'Gallery not found'
+    redirect_to :action => :index
   end
   
   def build_gallery
-    @gallery = Gallery.new(params[:gallery])
+    @gallery = Sofa::Gallery.new(params[:gallery])
   end
   
 end
