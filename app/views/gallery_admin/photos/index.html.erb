@@ -1,19 +1,25 @@
+<%= link_to 'Add new photo', new_gallery_admin_gallery_photo_path, :class => 'big button' %>
+
 <h1>Photos in <%=@gallery.title%></h1>
 
-<div class='box' id='file_container'>
-  <div id='filelist'></div>
-  <br />
-  <div class='actions'>
-    <button href='#' id='pickfiles'>Select Files</button>
-    <button href='#' id='uploadfiles'>Upload Files</button>
-  </div>
-
-  <br />
-  <div id='uploaded_files'>
-    <ul class='gallery sortable_photos' id='gallery_photos'>
-      <% @gallery.photos.each do |photo|%>
-        <%= render :partial => 'cms_admin/photos/file', :object => photo %>
-      <% end -%>
-    </ul>
-  </div>
-</div>
+<table class='formatted'>
+  <tr>
+    <th class='main'>Title</th>
+    <th>Slug</th>
+    <th></th>
+  </tr>
+  <% @photos.each do |photo| %>
+    <tr>
+      <td class='main'>
+        <%= image_tag(photo.image.url(:thumb)) %>
+      </td>
+      <td>
+        <%= photo.slug %>
+      </td>
+      <td class='action_links'>
+        <%= link_to 'Edit', edit_gallery_admin_gallery_photo_path(@gallery, photo) %>
+        <%= link_to 'Delete', gallery_admin_gallery_photo_path(@gallery, photo), :method => :delete, :confirm => 'Are you sure?' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
