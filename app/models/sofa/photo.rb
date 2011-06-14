@@ -9,7 +9,8 @@ class Sofa::Photo < ActiveRecord::Base
       t_settings = "#{g.thumb_max_width}x#{g.thumb_max_height}#{g.is_thumb_cropped?? '#' : '>'}"
       {
         :full   => f_settings,
-        :thumb  => t_settings
+        :thumb  => t_settings,
+        :admin  => '66x50#'
       }
     }
   )

@@ -11,7 +11,7 @@
   <% @photos.each do |photo| %>
     <tr>
       <td class='main'>
-        <%= image_tag(photo.image.url(:thumb)) %>
+        <%= image_tag(photo.image.url(:admin)) %>
       </td>
       <td>
         <%= photo.slug %>
