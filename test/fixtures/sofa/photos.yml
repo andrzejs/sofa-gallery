@@ -4,4 +4,6 @@ default:
   slug: default-photo
   description: Photo Description
   position: 0
-  photo: default.jpg
+  image_file_name: default.jpg
+  image_content_type: image/jpeg
+  image_file_size: 9999

@@ -9,16 +9,19 @@ class PhotoTest < ActiveSupport::TestCase
   end
   
   def test_validations
-    gallery = Sofa::Gallery.new
-    assert gallery.invalid?
-    assert_has_errors_on gallery, [:title, :slug]
+    photo = Sofa::Photo.new
+    assert photo.invalid?
+    assert_has_errors_on photo, :image_file_name
   end
   
   def test_creation
-    assert_difference 'Sofa::Gallery.count' do
-      Sofa::Gallery.create!(
-        :title  => 'Test Gallery',
-        :slug   => 'test-gallery'
+    gallery = sofa_galleries(:default)
+    assert_difference 'Sofa::Photo.count' do
+      Sofa::Photo.create!(
+        :gallery  => gallery,
+        :title    => 'Test Photo',
+        :slug     => 'test-photo',
+        :image    => fixture_file_upload('/files/default.jpg', 'image/jpeg')
       )
     end
   end

@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/thoughtbot/paperclip.git
+  revision: cbba34c2b9abb112bb9bae269edb2c8ab01adf51
+  specs:
+    paperclip (2.3.10)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -34,8 +43,7 @@ GEM
     arel (2.1.1)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
-    carrierwave (0.5.4)
-      activesupport (~> 3.0)
+    cocaine (0.1.0)
     erubis (2.7.0)
     git (1.2.5)
     hike (1.0.0)
@@ -51,8 +59,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mini_magick (3.3)
-      subexec (~> 0.1.0)
     multi_json (1.0.3)
     polyglot (0.3.1)
     rack (1.3.0)
@@ -86,7 +92,6 @@ GEM
       rack (~> 1.0)
       tilt (!= 1.3.0, ~> 1.1)
     sqlite3 (1.3.3)
-    subexec (0.1.0)
     thor (0.14.6)
     tilt (1.3.2)
     treetop (1.4.9)
@@ -97,9 +102,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  carrierwave
   jeweler
   kaminari
-  mini_magick
+  paperclip!
   rails (>= 3.1.0.rc4)
   sqlite3

@@ -4,12 +4,12 @@ class CreateSofaGallery < ActiveRecord::Migration
       t.string  :title
       t.string  :slug
       t.text    :description
-      t.integer :thumb_max_width,   :null => false, :default => 200
-      t.integer :thumb_max_height,  :null => false, :default => 150
-      t.boolean :is_thumb_cropped,  :null => false, :default => true
       t.integer :full_max_width,    :null => false, :default => 800
       t.integer :full_max_height,   :null => false, :default => 600
       t.boolean :is_full_cropped,   :null => false, :default => true
+      t.integer :thumb_max_width,   :null => false, :default => 200
+      t.integer :thumb_max_height,  :null => false, :default => 150
+      t.boolean :is_thumb_cropped,  :null => false, :default => true
       t.timestamps
     end
     add_index :sofa_galleries, :slug
@@ -19,7 +19,9 @@ class CreateSofaGallery < ActiveRecord::Migration
       t.string  :title
       t.string  :slug
       t.text    :description
-      t.string  :photo
+      t.string  :image_file_name
+      t.string  :image_content_type
+      t.integer :image_file_size
       t.integer :position, :null => false, :default => 0
       t.timestamps
     end

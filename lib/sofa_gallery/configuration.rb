@@ -1,7 +1,7 @@
 class SofaGallery::Configuration
   
-  # Upload settings
-  attr_accessor :upload_photo_options
+  # Paperclip upload settings for photos
+  attr_accessor :upload_options
   
   # Default url to access admin area is http://yourhost/cms-admin/ 
   # You can change 'cms-admin' to 'admin', for example.
