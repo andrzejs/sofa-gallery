@@ -1,7 +1,0 @@
-<% if @photo %>
-  <div class="photo-box">
-    <%= image_tag(@photo.image.url(:full), :alt => @photo.description) %>
-  </div>
-<% else %>
-  Photo not found.
-<% end %>
