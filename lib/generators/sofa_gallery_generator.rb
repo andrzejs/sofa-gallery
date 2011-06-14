@@ -1,4 +1,4 @@
-class CmsGalleryGenerator < Rails::Generators::Base
+class SofaGalleryGenerator < Rails::Generators::Base
   
   require 'rails/generators/active_record'
   include Rails::Generators::Migration

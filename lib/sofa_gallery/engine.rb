@@ -1,16 +1,20 @@
-require "comfortable_mexican_sofa" if defined?(ComfortableMexicanSofa)
-require "cms_gallery"
-require "rails"
+require 'sofa_gallery'
+require 'rails'
+require 'paperclip'
 
 module CmsGallery
   class Engine < Rails::Engine
-    initializer 'cms_gallery.helper' do |app|
+    initializer 'sofa_gallery.helper' do |app|
       if defined?(ComfortableMexicanSofa)
-        ComfortableMexicanSofa::ViewHooks.add(:navigation, '/cms_admin/cms_gallery_navigation')
-        ComfortableMexicanSofa::ViewHooks.add(:html_head, '/cms_admin/cms_gallery_html_head')
+        # applying configuraion
+        SofaGallery.configure do |conf|
+          conf.admin_route_prefix = ComfortableMexicanSofa.config.admin_route_prefix
+          conf.upload_options     = ComfortableMexicanSofa.config.upload_file_options
+          conf.admin_controller   = 'CmsAdmin::BaseController'
+        end
+        # applying nav elements
+        ComfortableMexicanSofa::ViewHooks.add(:navigation, '/gallery_admin/navigation')
       end
-      
-      ActionView::Base.send(:include, CmsGallery::ViewMethods)
     end
   end
 end
