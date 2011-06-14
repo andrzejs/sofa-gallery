@@ -10,7 +10,7 @@ begin
     gem.name        = 'sofa_gallery'
     gem.homepage    = 'http://github.com/twg/sofa_gallery'
     gem.license     = 'MIT'
-    gem.summary     = 'SofaGallery is a super simple gallery plugin for ComfortableMexicanSofa'
+    gem.summary     = 'SofaGallery is an image gallery engine for Rails 3 apps (and ComfortableMexicanSofa)'
     gem.description = ''
     gem.email       = 'stephen@theworkinggroup.ca'
     gem.authors     = ['Stephen McLeod', 'Oleg Khabarov', 'The Working Group Inc.']
