@@ -8,19 +8,23 @@ class Sofa::Photo < ActiveRecord::Base
       f_settings = "#{g.full_max_width}x#{g.full_max_height}#{g.is_full_cropped?? '#' : '>'}"
       t_settings = "#{g.thumb_max_width}x#{g.thumb_max_height}#{g.is_thumb_cropped?? '#' : '>'}"
       {
-        :full   => f_settings,
-        :thumb  => t_settings,
-        :admin  => '40x30#'
+        :full         => { :geometry => f_settings, :processors => [:cropper] },
+        :thumb        => { :geometry => t_settings, :processors => [:cropper] },
+        :admin_full   => '800x600>',
+        :admin_thumb  => '40x30#'
       }
     }
   )
   has_attached_file :image, upload_options
+  
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   
   # -- Relationships --------------------------------------------------------
   belongs_to :gallery
   
   # -- Callbacks ------------------------------------------------------------
   before_create :assign_position
+  after_update :reprocess_image, :if => :cropping?
   
   # -- Validations ----------------------------------------------------------
   validates :gallery_id,
@@ -36,11 +40,25 @@ class Sofa::Photo < ActiveRecord::Base
   # -- Scopes ---------------------------------------------------------------
   default_scope order(:position)
   
+  # -- Instance Methods -----------------------------------------------------
+  def image_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(image.path(style))
+  end
+  
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+  
 private
   
   def assign_position
     max = self.gallery.photos.maximum(:position)
     self.position = max ? max + 1 : 0
+  end
+  
+  def reprocess_image
+    image.reprocess!
   end
   
 end

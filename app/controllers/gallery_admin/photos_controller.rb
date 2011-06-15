@@ -1,7 +1,7 @@
 class GalleryAdmin::PhotosController < GalleryAdmin::BaseController
   
   before_filter :load_gallery
-  before_filter :load_photo,  :only => [:edit, :update, :destroy]
+  before_filter :load_photo,  :only => [:edit, :update, :destroy, :crop]
   before_filter :build_photo, :only => [:new, :create]
 
   def index
@@ -47,6 +47,10 @@ class GalleryAdmin::PhotosController < GalleryAdmin::BaseController
       end
     end
     render :nothing => true
+  end
+  
+  def crop
+    render
   end
   
 protected

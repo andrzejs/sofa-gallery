@@ -5,6 +5,7 @@
     <title>SofaGallery</title>
     <%= javascript_include_tag 'sofa_gallery/application' %>
     <%= stylesheet_link_tag 'sofa_gallery/application' %>
+    <%= yield :head %>
   </head>
   <body class='c_<%= params[:controller].gsub('/', '_') %> a_<%= params[:action] %>'>
     <% flash.each do |type, message| %>

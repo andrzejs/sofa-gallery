@@ -48,7 +48,6 @@ GEM
     git (1.2.5)
     hike (1.0.0)
     i18n (0.6.0)
-    jcropper (0.4.0)
     jeweler (1.6.2)
       bundler (~> 1.0)
       git (>= 1.2.5)
@@ -101,7 +100,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jcropper (>= 0.4.0)
   jeweler
   paperclip!
   rails (>= 3.1.0.rc4)

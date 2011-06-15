@@ -4,8 +4,8 @@ class CreateSofaGallery < ActiveRecord::Migration
       t.string  :title
       t.string  :slug
       t.text    :description
-      t.integer :full_max_width,    :null => false, :default => 800
-      t.integer :full_max_height,   :null => false, :default => 600
+      t.integer :full_max_width,    :null => false, :default => 600
+      t.integer :full_max_height,   :null => false, :default => 450
       t.boolean :is_full_cropped,   :null => false, :default => true
       t.integer :thumb_max_width,   :null => false, :default => 200
       t.integer :thumb_max_height,  :null => false, :default => 150
