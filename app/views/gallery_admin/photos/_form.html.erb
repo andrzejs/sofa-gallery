@@ -1,8 +1,10 @@
 <%= form.text_field :title %>
 <%= form.text_field :slug %>
-<% if @photo.image?%>
+<% if @photo.image? %>
   <%= form.simple_field 'Current Image' do %>
     <%= image_tag(@photo.image.url(:thumb)) %>
+    <br/>
+    <%= link_to 'Crop Image', crop_gallery_admin_gallery_photo_path(@gallery, @photo) %>
   <% end %>
 <% end %>
 <%= form.file_field :image %>

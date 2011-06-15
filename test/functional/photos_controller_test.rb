@@ -109,4 +109,15 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
     assert_equal 1, photo.position
   end
   
+  def test_get_crop
+    photo = sofa_photos(:default)
+    photo.image = fixture_file_upload('/files/default.jpg', 'image/jpeg')
+    photo.save!
+    
+    get :crop, :gallery_id => photo.gallery, :id => photo
+    assert_response :success
+    assert_template 'crop'
+    assert assigns(:photo)
+  end
+  
 end

@@ -15,7 +15,7 @@
       </td>
       <td class='main'>
         <% gallery.photos.limit(5).each do |photo| %>
-          <%= image_tag(photo.image.url(:admin)) %>
+          <%= image_tag(photo.image.url(:admin_thumb)) %>
         <% end %>
       </td>
       <td class='action_links'>

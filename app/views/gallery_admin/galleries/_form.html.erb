@@ -2,11 +2,10 @@
 <%= form.text_field :slug %>
 <%= form.text_area  :description%>
 
-<%= form.text_field :full_max_width,    :label => 'Full Width' %>
-<%= form.text_field :full_max_height,   :label => 'Full Height' %>
-<%= form.check_box  :is_full_cropped,   :label => 'Cropped?' %>
-<%= form.text_field :thumb_max_width,   :label => 'Thumb Width' %>
-<%= form.text_field :thumb_max_height,  :label => 'Thumb Height' %>
-<%= form.check_box  :is_thumb_cropped,  :label => 'Cropped?' %>
+<%= form.text_field :full_width %>
+<%= form.text_field :full_height %>
+<%= form.text_field :thumb_width %>
+<%= form.text_field :thumb_height %>
+<%= form.check_box  :force_ratio %>
 
 <%= form.submit 'Save'%>
