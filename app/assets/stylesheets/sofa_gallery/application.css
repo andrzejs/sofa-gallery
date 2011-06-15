@@ -32,7 +32,7 @@ table.formatted td img {
   padding: 2px;
   margin-right: 2px;
 }
-table.formatted td .slug {
+table.formatted td .sublabel {
   font-size: 11px;
   line-height: 11px;
   color: #888;
