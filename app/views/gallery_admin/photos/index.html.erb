@@ -3,19 +3,21 @@
 <h1>Photos in <%=@gallery.title%></h1>
 
 <table class='formatted'>
-  <% @photos.each do |photo| %>
-    <tr>
-      <td>
-        <%= image_tag(photo.image.url(:admin), :class => 'thumb') %>
-      </td>
-      <td class='main'>
-        <div class='title'><%= photo.title %></div>
-        <div class='slug'><%= photo.slug %></div>
-      </td>
-      <td class='action_links'>
-        <%= link_to 'Edit', edit_gallery_admin_gallery_photo_path(@gallery, photo) %>
-        <%= link_to 'Delete', gallery_admin_gallery_photo_path(@gallery, photo), :method => :delete, :confirm => 'Are you sure?' %>
-      </td>
-    </tr>
-  <% end %>
+  <tbody class='sortable'>
+    <% @photos.each do |photo| %>
+      <tr id='<%= dom_id(photo) %>'>
+        <td>
+          <%= image_tag(photo.image.url(:admin), :class => 'thumb dragger') %>
+        </td>
+        <td class='main'>
+          <div class='title'><%= photo.title %></div>
+          <div class='slug'><%= photo.slug %></div>
+        </td>
+        <td class='action_links'>
+          <%= link_to 'Edit', edit_gallery_admin_gallery_photo_path(@gallery, photo) %>
+          <%= link_to 'Delete', gallery_admin_gallery_photo_path(@gallery, photo), :method => :delete, :confirm => 'Are you sure?' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

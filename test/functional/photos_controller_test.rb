@@ -100,7 +100,13 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
   
   def test_reorder
-    flunk
+    photo = sofa_photos(:default)
+    assert_equal 0, photo.position
+    xhr :post, :reorder, :gallery_id => photo.gallery, :sofa_photo => ['dummy', photo.id]
+    assert_response :success
+    
+    photo.reload
+    assert_equal 1, photo.position
   end
   
 end

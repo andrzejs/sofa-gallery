@@ -41,8 +41,8 @@ class GalleryAdmin::PhotosController < GalleryAdmin::BaseController
   end
   
   def reorder
-    (params[:photo] || []).each_with_index do |id, index|
-      if (photo = Photo.find_by_id(id))
+    (params[:sofa_photo] || []).each_with_index do |id, index|
+      if (photo = Sofa::Photo.find_by_id(id))
         photo.update_attribute(:position, index)
       end
     end
