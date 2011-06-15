@@ -11,11 +11,15 @@ module SofaGallery
     # Controller that should be used for admin area
     attr_accessor :admin_controller
     
+    # Form builder
+    attr_accessor :form_builder
+    
     # Configuration defaults
     def initialize
       @upload_photo_options   = { }
       @admin_route_prefix     = 'cms-admin'
       @admin_controller       = 'ApplicationController'
+      @form_builder           = 'SofaGallery::FormBuilder'
     end
     
   end

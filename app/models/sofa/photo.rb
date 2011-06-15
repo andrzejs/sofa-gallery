@@ -10,7 +10,7 @@ class Sofa::Photo < ActiveRecord::Base
       {
         :full   => f_settings,
         :thumb  => t_settings,
-        :admin  => '66x50#'
+        :admin  => '40x30#'
       }
     }
   )

@@ -3,18 +3,20 @@
 <h1>Galleries</h1>
 
 <table class='formatted'>
-  <tr>
-    <th class='main'>Title</th>
-    <th>Slug</th>
-    <th></th>
-  </tr>
   <% @galleries.each do |gallery| %>
     <tr>
       <td class='main'>
-        <%= link_to gallery.title, gallery_admin_gallery_photos_path(gallery) %>
+        <div class='title'>
+          <%= link_to gallery.title, gallery_admin_gallery_photos_path(gallery) %>
+        </div>
+        <div class='slug'>
+          <%= gallery.slug %>
+        </div>  
       </td>
-      <td>
-        <%= gallery.slug %>
+      <td class='thumb'>
+        <% gallery.photos.limit(5).each do |photo| %>
+          <%= image_tag(photo.image.url(:admin)) %>
+        <% end %>
       </td>
       <td class='action_links'>
         <%= link_to 'Edit', edit_gallery_admin_gallery_path(gallery) %>

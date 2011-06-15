@@ -3,18 +3,14 @@
 <h1>Photos in <%=@gallery.title%></h1>
 
 <table class='formatted'>
-  <tr>
-    <th class='main'>Title</th>
-    <th>Slug</th>
-    <th></th>
-  </tr>
   <% @photos.each do |photo| %>
     <tr>
-      <td class='main'>
-        <%= image_tag(photo.image.url(:admin)) %>
-      </td>
       <td>
-        <%= photo.slug %>
+        <%= image_tag(photo.image.url(:admin), :class => 'thumb') %>
+      </td>
+      <td class='main'>
+        <div class='title'><%= photo.title %></div>
+        <div class='slug'><%= photo.slug %></div>
       </td>
       <td class='action_links'>
         <%= link_to 'Edit', edit_gallery_admin_gallery_photo_path(@gallery, photo) %>

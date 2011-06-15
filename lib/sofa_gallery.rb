@@ -4,6 +4,7 @@ unless defined? SofaGallery::Application
 end
 
 require File.expand_path('sofa_gallery/configuration', File.dirname(__FILE__))
+require File.expand_path('sofa_gallery/form_builder', File.dirname(__FILE__))
 
 module SofaGallery
   class << self

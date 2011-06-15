@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>SofaGallery</title>
+    <%= javascript_include_tag 'sofa_gallery/application' %>
+    <%= stylesheet_link_tag 'sofa_gallery/application' %>
+  </head>
+  <body class='c_<%= params[:controller].gsub('/', '_') %> a_<%= params[:action] %>'>
+    <% flash.each do |type, message| %>
+      <div class='flash <%= type %>'><%= message %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
