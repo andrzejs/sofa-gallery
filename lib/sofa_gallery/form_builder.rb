@@ -37,4 +37,14 @@ class SofaGallery::FormBuilder < ActionView::Helpers::FormBuilder
     "<label for=\"#{object_name}_#{field}\">#{label}</label>".html_safe
   end
   
+  def simple_field(label = nil, content = nil, options = {}, &block)
+    content ||= @template.capture(&block) if block_given?
+    %(
+      <div class='form_element #{options.delete(:class)}'>
+        <div class='label'>#{label}</div>
+        <div class='value'>#{content}</div>
+      </div>
+    ).html_safe
+  end
+  
 end

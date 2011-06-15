@@ -5,20 +5,21 @@
 <table class='formatted'>
   <% @galleries.each do |gallery| %>
     <tr>
-      <td class='main'>
+      <td>
         <div class='title'>
           <%= link_to gallery.title, gallery_admin_gallery_photos_path(gallery) %>
         </div>
-        <div class='slug'>
+        <div class='sublabel'>
           <%= gallery.slug %>
         </div>  
       </td>
-      <td class='thumb'>
+      <td class='main'>
         <% gallery.photos.limit(5).each do |photo| %>
           <%= image_tag(photo.image.url(:admin)) %>
         <% end %>
       </td>
       <td class='action_links'>
+        <%= link_to 'Show Photos', gallery_admin_gallery_photos_path(gallery) %>
         <%= link_to 'Edit', edit_gallery_admin_gallery_path(gallery) %>
         <%= link_to 'Delete', gallery_admin_gallery_path(gallery), :method => :delete, :confirm => 'Are you sure?' %>
       </td>

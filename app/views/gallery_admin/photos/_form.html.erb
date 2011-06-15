@@ -1,7 +1,9 @@
 <%= form.text_field :title %>
 <%= form.text_field :slug %>
 <% if @photo.image?%>
-  <%= image_tag(@photo.image.url(:thumb))%>
+  <%= form.simple_field 'Current Image' do %>
+    <%= image_tag(@photo.image.url(:thumb)) %>
+  <% end %>
 <% end %>
 <%= form.file_field :image %>
 <%= form.text_area :description %>
