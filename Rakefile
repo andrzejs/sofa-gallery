@@ -8,12 +8,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name        = 'sofa_gallery'
-    gem.homepage    = 'http://github.com/twg/sofa_gallery'
+    gem.homepage    = 'http://github.com/twg/sofa-gallery'
     gem.license     = 'MIT'
-    gem.summary     = 'SofaGallery is an image gallery engine for Rails 3 apps (and ComfortableMexicanSofa)'
+    gem.summary     = 'SofaGallery is an image gallery engine for Rails 3.1 apps (and ComfortableMexicanSofa)'
     gem.description = ''
     gem.email       = 'stephen@theworkinggroup.ca'
-    gem.authors     = ['Stephen McLeod', 'Oleg Khabarov', 'The Working Group Inc.']
+    gem.authors     = ['Oleg Khabarov', 'Stephen McLeod', 'The Working Group Inc.']
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

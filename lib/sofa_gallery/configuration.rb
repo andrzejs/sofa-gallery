@@ -17,7 +17,7 @@ module SofaGallery
     # Configuration defaults
     def initialize
       @upload_photo_options   = { }
-      @admin_route_prefix     = 'cms-admin'
+      @admin_route_prefix     = 'admin'
       @admin_controller       = 'ApplicationController'
       @form_builder           = 'SofaGallery::FormBuilder'
     end
