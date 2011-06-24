@@ -13,7 +13,7 @@ class GalleryAdmin::GalleriesControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'new'
     assert assigns(:gallery)
-    assert_select "form[action='/cms-admin/galleries']"
+    assert_select "form[action='/admin/galleries']"
   end
 
   def test_creation
@@ -43,7 +43,7 @@ class GalleryAdmin::GalleriesControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'edit'
     assert assigns(:gallery)
-    assert_select "form[action='/cms-admin/galleries/#{gallery.id}']"
+    assert_select "form[action='/admin/galleries/#{gallery.id}']"
   end
   
   def test_get_edit_failure

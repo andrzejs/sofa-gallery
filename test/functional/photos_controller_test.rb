@@ -22,7 +22,7 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'new'
     assert assigns(:photo)
-    assert_select "form[action='/cms-admin/galleries/#{gallery.id}/photos']"
+    assert_select "form[action='/admin/galleries/#{gallery.id}/photos']"
   end
 
   def test_creation
@@ -52,7 +52,7 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
     get :edit, :gallery_id => photo.gallery, :id => photo
     assert_response :success
     assert_template 'edit'
-    assert_select "form[action='/cms-admin/galleries/#{photo.gallery.id}/photos/#{photo.id}']"
+    assert_select "form[action='/admin/galleries/#{photo.gallery.id}/photos/#{photo.id}']"
   end
   
   def test_get_edit_failure

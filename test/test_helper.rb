@@ -14,7 +14,10 @@ class ActiveSupport::TestCase
   # resetting default configuration
   def reset_config
     SofaGallery.configure do |config|
-      config.admin_route_prefix = 'cms-admin'
+      config.admin_route_prefix = 'admin'
+      config.upload_options     = { }
+      config.admin_controller   = 'ApplicationController'
+      config.form_builder       = 'SofaGallery::FormBuilder'
     end
   end
   
