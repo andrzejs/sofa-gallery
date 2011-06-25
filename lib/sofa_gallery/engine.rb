@@ -1,6 +1,9 @@
 require 'sofa_gallery'
 require 'rails'
 require 'paperclip'
+if defined?(ComfortableMexicanSofa)
+  require 'comfortable_mexican_sofa'
+end
 
 module CmsGallery
   class Engine < Rails::Engine

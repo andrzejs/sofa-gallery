@@ -10,7 +10,7 @@ module SofaGalleryHelper
   end
   
   def render_gallery(slug, type = 'thumbnails')
-    @gallery = Gallery.find_by_slug(slug)
+    @gallery = Sofa::Gallery.find_by_slug(slug)
     if (@gallery)
       render :partial => "content/#{type}"
     else
