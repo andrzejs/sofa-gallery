@@ -1,14 +1,14 @@
 <% if @gallery %>
   <% content_for :head do %>
-    <%= stylesheet_link_tag "/stylesheets/cms_gallery/cms_gallery_thumbnails.css" %>
-    <%= javascript_include_tag "/javascripts/cms_gallery/cms_gallery_thumbnails.js" %>
+    <%= stylesheet_link_tag "/assets/sofa_gallery/sofa_gallery_thumbnails.css" %>
+    <%= javascript_include_tag "/assets/sofa_gallery/sofa_gallery_thumbnails.js" %>
   <% end %>
   <ul id="<%= dom_id(@gallery)%>" class="gallery">
     <% @gallery.photos.each do |photo| %>
       <li id="<%= dom_id(photo) %>">
         <div class="photo">
           <%= link_to photo.image.url(:full), :rel => 'prettyPhoto', :title => photo.description do %>
-            <%= image_tag(photo.image.url(:thumbnail), :alt => photo.description) %>
+            <%= image_tag(photo.image.url(:thumb), :alt => photo.description) %>
           <% end %>
         </div>
       </li>

@@ -1,7 +1,7 @@
 <% if @gallery %>
   <% content_for :head do %>
-    <%= stylesheet_link_tag "/stylesheets/sofa_gallery/sofa_gallery_carousel.css" %>
-    <%= javascript_include_tag "/javascripts/sofa_gallery/sofa_gallery_carousel.js" %>
+    <%= stylesheet_link_tag "/assets/sofa_gallery/sofa_gallery_carousel.css" %>
+    <%= javascript_include_tag "/assets/sofa_gallery/sofa_gallery_carousel.js" %>
   <% end %>
   <ul id="cms_carousel" class="jcarousel-skin-tango">
     <% @gallery.photos.each do |photo| %>
