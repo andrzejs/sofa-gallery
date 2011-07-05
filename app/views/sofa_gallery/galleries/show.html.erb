@@ -1,8 +1,10 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "sofa_gallery/sofa_gallery_thumbnails.css" %>
+  <%= javascript_include_tag "sofa_gallery/sofa_gallery_thumbnails.js" %>
+<% end %>
+
 <% if @gallery %>
-  <% content_for :head do %>
-    <%= stylesheet_link_tag "sofa_gallery/sofa_gallery_thumbnails.css" %>
-    <%= javascript_include_tag "sofa_gallery/sofa_gallery_thumbnails.js" %>
-  <% end %>
+  
   <ul id="<%= dom_id(@gallery)%>" class="gallery">
     <% @gallery.photos.each do |photo| %>
       <li id="<%= dom_id(photo) %>">
