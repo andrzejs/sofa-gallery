@@ -6,7 +6,7 @@
       $('#cropbox').Jcrop({
         onChange: update_crop,
         onSelect: update_crop,
-        aspectRatio: <%= @photo.gallery.force_ratio_full?? (@photo.gallery.full_width.to_f / @photo.gallery.full_height) : 'null' %>
+        aspectRatio: <%= @photo.gallery.force_ratio?? (@photo.gallery.full_width.to_f / @photo.gallery.full_height) : 'null' %>
       });
     });
     
