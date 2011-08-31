@@ -1,4 +1,4 @@
-class GalleryAdmin::PhotosController < GalleryAdmin::BaseController
+class SofaGallery::Admin::PhotosController < SofaGallery::Admin::BaseController
   
   before_filter :load_gallery
   before_filter :load_photo,  :only => [:edit, :update, :destroy, :crop]
@@ -42,7 +42,7 @@ class GalleryAdmin::PhotosController < GalleryAdmin::BaseController
   
   def reorder
     (params[:sofa_photo] || []).each_with_index do |id, index|
-      if (photo = Sofa::Photo.find_by_id(id))
+      if (photo = SofaGallery::Photo.find_by_id(id))
         photo.update_attribute(:position, index)
       end
     end
@@ -56,10 +56,10 @@ class GalleryAdmin::PhotosController < GalleryAdmin::BaseController
 protected
   
   def load_gallery
-    @gallery = Sofa::Gallery.find(params[:gallery_id])
+    @gallery = SofaGallery::Gallery.find(params[:gallery_id])
   rescue ActiveRecord::RecordNotFound
     flash[:error] = 'Gallery not found'
-    redirect_to gallery_admin_galleries_path
+    redirect_to sofa_gallery_admin_galleries_path
   end
   
   def load_photo
@@ -70,7 +70,7 @@ protected
   end
   
   def build_photo
-    @photo = Sofa::Photo.new({:gallery => @gallery}.merge(params[:photo] || {}))
+    @photo = SofaGallery::Photo.new({:gallery => @gallery}.merge(params[:photo] || {}))
   end
   
 end

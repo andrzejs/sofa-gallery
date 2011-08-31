@@ -1,0 +1,5 @@
+<h1>Editing Photo</h1>
+
+<%= sofa_gallery_form_for @photo, :url => { :action => :update }, :html => { :multipart => true } do |form| %>
+  <%= render :partial => form %>
+<% end %>

@@ -1,10 +1,10 @@
-class GalleryAdmin::GalleriesController < GalleryAdmin::BaseController
+class SofaGallery::Admin::GalleriesController < SofaGallery::Admin::BaseController
   
   before_filter :load_gallery,  :except => [:index, :new, :create]
   before_filter :build_gallery, :only   => [:new, :create]
   
   def index
-    @galleries = Sofa::Gallery.all
+    @galleries = SofaGallery::Gallery.all
   end
   
   def new
@@ -46,14 +46,14 @@ class GalleryAdmin::GalleriesController < GalleryAdmin::BaseController
 protected
   
   def load_gallery
-    @gallery = Sofa::Gallery.find(params[:id])
+    @gallery = SofaGallery::Gallery.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:error] = 'Gallery not found'
     redirect_to :action => :index
   end
   
   def build_gallery
-    @gallery = Sofa::Gallery.new(params[:gallery])
+    @gallery = SofaGallery::Gallery.new(params[:gallery])
   end
   
 end

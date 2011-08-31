@@ -1,6 +1,6 @@
 module SofaGalleryHelper
   
-  def gallery_form_for(record_or_name_or_array, *args, &proc)
+  def sofa_gallery_form_for(record_or_name_or_array, *args, &proc)
     options = args.extract_options!
     form_for(
       record_or_name_or_array,

@@ -1,4 +1,4 @@
-<%= link_to 'Add new photo', new_gallery_admin_gallery_photo_path, :class => 'big button' %>
+<%= link_to 'Add new photo', new_sofa_gallery_admin_gallery_photo_path(@gallery), :class => 'big button' %>
 
 <h1>Photos in <%=@gallery.title%></h1>
 
@@ -14,9 +14,9 @@
           <div class='sublabel'><%= photo.slug %></div>
         </td>
         <td class='action_links'>
-          <%= link_to 'Crop', crop_gallery_admin_gallery_photo_path(@gallery, photo) %>
-          <%= link_to 'Edit', edit_gallery_admin_gallery_photo_path(@gallery, photo) %>
-          <%= link_to 'Delete', gallery_admin_gallery_photo_path(@gallery, photo), :method => :delete, :confirm => 'Are you sure?' %>
+          <%= link_to 'Crop', crop_sofa_gallery_admin_gallery_photo_path(@gallery, photo) %>
+          <%= link_to 'Edit', edit_sofa_gallery_admin_gallery_photo_path(@gallery, photo) %>
+          <%= link_to 'Delete', sofa_gallery_admin_gallery_photo_path(@gallery, photo), :method => :delete, :confirm => 'Are you sure?' %>
         </td>
       </tr>
     <% end %>

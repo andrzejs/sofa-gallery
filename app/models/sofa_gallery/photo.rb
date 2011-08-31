@@ -1,13 +1,12 @@
-class Sofa::Photo < ActiveRecord::Base
+class SofaGallery::Photo < ActiveRecord::Base
   
-  set_table_name :sofa_photos
+  set_table_name :sofa_gallery_photos
   
   upload_options = (SofaGallery.config.upload_options || {}).merge(
     :styles => lambda { |image|
       g = image.instance.gallery
-      @force_ratio = ">"
       f_settings = "#{g.full_width}x#{g.full_height}#{g.force_ratio?? '#' : '>'}"
-      t_settings = "#{g.thumb_width}x#{g.thumb_height}#{@force_ratio}"
+      t_settings = "#{g.thumb_width}x#{g.thumb_height}#{g.force_ratio?? '#' : '>'}"
       {
         :full         => { :geometry => f_settings, :processors => [:cropper] },
         :thumb        => { :geometry => t_settings, :processors => [:cropper] },
@@ -17,8 +16,6 @@ class Sofa::Photo < ActiveRecord::Base
     }
   )
   has_attached_file :image, upload_options 
-  
-  before_post_process :compare_image_dimensions
   
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   
@@ -44,16 +41,6 @@ class Sofa::Photo < ActiveRecord::Base
   default_scope order(:position)
   
   # -- Instance Methods -----------------------------------------------------
-  def compare_image_dimensions
-    geo = Paperclip::Geometry.from_file(image.queued_for_write[:original])
-    logger.info("**************************************ORIGINAL WIDTH:" << geo.width.to_s)
-    g = image.instance.gallery
-    logger.info("**************************************FULL WIDTH:" << g.full_width.to_s)
-    if geo.width <= g.thumb_width
-      @force_ratio = ""
-    end
-  end
-  
   def image_geometry(style = :original)
     @geometry ||= {}
     @geometry[style] ||= Paperclip::Geometry.from_file(image.path(style))

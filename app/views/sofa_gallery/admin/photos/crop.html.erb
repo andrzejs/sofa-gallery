@@ -24,7 +24,7 @@
 
 <%= image_tag @photo.image.url(:admin_full), :id => 'cropbox' %>
 
-<%= gallery_form_for @photo, :as => :photo, :url => { :action => :update } do |form| %>
+<%= sofa_gallery_form_for @photo, :as => :photo, :url => { :action => :update } do |form| %>
   <% [:crop_x, :crop_y, :crop_w, :crop_h].each do |attr| %>
     <%= form.hidden_field attr, :id => attr %>
   <% end %>

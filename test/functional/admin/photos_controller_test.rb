@@ -1,9 +1,9 @@
-require File.expand_path('../test_helper', File.dirname(__FILE__))
+require File.expand_path('../../test_helper', File.dirname(__FILE__))
 
-class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
+class SofaGallery::Admin::PhotosControllerTest < ActionController::TestCase
   
   def test_get_index
-    get :index, :gallery_id => sofa_galleries(:default)
+    get :index, :gallery_id => sofa_gallery_galleries(:default)
     assert_response :success
     assert_template 'index'
     assert assigns(:photos)
@@ -12,12 +12,12 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   def test_get_index_failure
     get :index, :gallery_id => 'invalid'
     assert_response :redirect
-    assert_redirected_to gallery_admin_galleries_path
+    assert_redirected_to sofa_gallery_admin_galleries_path
     assert_equal 'Gallery not found', flash[:error]
   end
   
   def test_new
-    gallery = sofa_galleries(:default)
+    gallery = sofa_gallery_galleries(:default)
     get :new, :gallery_id => gallery
     assert_response :success
     assert_template 'new'
@@ -26,8 +26,8 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
 
   def test_creation
-    assert_difference 'Sofa::Photo.count' do
-      post :create, :gallery_id => sofa_galleries(:default), :photo => {
+    assert_difference 'SofaGallery::Photo.count' do
+      post :create, :gallery_id => sofa_gallery_galleries(:default), :photo => {
         :title  => 'Test Photo',
         :slug   => 'test-photo',
         :image  => fixture_file_upload('/files/default.jpg', 'image/jpeg')
@@ -39,8 +39,8 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
 
   def test_creation_fail
-    assert_no_difference 'Sofa::Photo.count' do
-      post :create, :gallery_id => sofa_galleries(:default), :photo => { }
+    assert_no_difference 'SofaGallery::Photo.count' do
+      post :create, :gallery_id => sofa_gallery_galleries(:default), :photo => { }
       assert_response :success
       assert_template 'new'
       assert_equal 'Failed to create Photo', flash[:error]
@@ -48,7 +48,7 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
   
   def test_get_edit
-    photo = sofa_photos(:default)
+    photo = sofa_gallery_photos(:default)
     get :edit, :gallery_id => photo.gallery, :id => photo
     assert_response :success
     assert_template 'edit'
@@ -56,14 +56,14 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
   
   def test_get_edit_failure
-    get :edit, :gallery_id => sofa_galleries(:default), :id => 'invalid'
+    get :edit, :gallery_id => sofa_gallery_galleries(:default), :id => 'invalid'
     assert_response :redirect
     assert_redirected_to :action => :index
     assert_equal 'Photo not found', flash[:error]
   end
   
   def test_update
-    photo = sofa_photos(:default)
+    photo = sofa_gallery_photos(:default)
     put :update, :gallery_id => photo.gallery, :id => photo, :photo => {
       :title => 'Updated Title'
     }
@@ -76,7 +76,7 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
   
   def test_update_failure
-    photo = sofa_photos(:default)
+    photo = sofa_gallery_photos(:default)
     put :update, :gallery_id => photo.gallery, :id => photo, :photo => {
       :title => 'Updated Title',
       :image => fixture_file_upload('/files/default.txt', 'text/plain')
@@ -90,8 +90,8 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
   
   def test_destroy
-    photo = sofa_photos(:default)
-    assert_difference 'Sofa::Photo.count', -1 do
+    photo = sofa_gallery_photos(:default)
+    assert_difference 'SofaGallery::Photo.count', -1 do
       delete :destroy, :gallery_id => photo.gallery, :id => photo
       assert_response :redirect
       assert_redirected_to :action => :index
@@ -100,7 +100,7 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
   
   def test_reorder
-    photo = sofa_photos(:default)
+    photo = sofa_gallery_photos(:default)
     assert_equal 0, photo.position
     xhr :post, :reorder, :gallery_id => photo.gallery, :sofa_photo => ['dummy', photo.id]
     assert_response :success
@@ -110,7 +110,7 @@ class GalleryAdmin::PhotosControllerTest < ActionController::TestCase
   end
   
   def test_get_crop
-    photo = sofa_photos(:default)
+    photo = sofa_gallery_photos(:default)
     photo.image = fixture_file_upload('/files/default.jpg', 'image/jpeg')
     photo.save!
     

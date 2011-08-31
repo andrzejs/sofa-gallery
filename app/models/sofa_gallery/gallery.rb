@@ -1,6 +1,6 @@
-class Sofa::Gallery < ActiveRecord::Base
+class SofaGallery::Gallery < ActiveRecord::Base
   
-  set_table_name :sofa_galleries
+  set_table_name :sofa_gallery_galleries
   
   # -- Relationships --------------------------------------------------------
   has_many :photos, :dependent => :destroy

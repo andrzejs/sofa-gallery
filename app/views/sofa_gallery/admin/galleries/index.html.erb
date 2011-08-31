@@ -1,4 +1,4 @@
-<%= link_to 'Add new gallery', new_gallery_admin_gallery_path, :class => 'big button' %>
+<%= link_to 'Add new gallery', new_sofa_gallery_admin_gallery_path, :class => 'big button' %>
 
 <h1>Galleries</h1>
 
@@ -7,7 +7,7 @@
     <tr>
       <td>
         <div class='title'>
-          <%= link_to gallery.title, gallery_admin_gallery_photos_path(gallery) %>
+          <%= link_to gallery.title, sofa_gallery_admin_gallery_photos_path(gallery) %>
         </div>
         <div class='sublabel'>
           <%= gallery.slug %>
@@ -19,9 +19,9 @@
         <% end %>
       </td>
       <td class='action_links'>
-        <%= link_to 'Show Photos', gallery_admin_gallery_photos_path(gallery) %>
-        <%= link_to 'Edit', edit_gallery_admin_gallery_path(gallery) %>
-        <%= link_to 'Delete', gallery_admin_gallery_path(gallery), :method => :delete, :confirm => 'Are you sure?' %>
+        <%= link_to 'Show Photos', sofa_gallery_admin_gallery_photos_path(gallery) %>
+        <%= link_to 'Edit', edit_sofa_gallery_admin_gallery_path(gallery) %>
+        <%= link_to 'Delete', sofa_gallery_admin_gallery_path(gallery), :method => :delete, :confirm => 'Are you sure?' %>
       </td>
     </tr>
   <% end %>

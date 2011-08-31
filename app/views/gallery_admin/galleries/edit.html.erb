@@ -1,5 +1,0 @@
-<h1>Editing <%= @gallery.title %></h1>
-
-<%= gallery_form_for @gallery, :as => :gallery, :url => { :action => :update } do |form|%>
-  <%= render :partial => form %>
-<% end %>
