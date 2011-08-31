@@ -18,8 +18,6 @@ class Sofa::Photo < ActiveRecord::Base
   )
   has_attached_file :image, upload_options 
   
-  logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-  
   before_post_process :compare_image_dimensions
   
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
