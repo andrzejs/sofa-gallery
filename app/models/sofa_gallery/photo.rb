@@ -5,8 +5,8 @@ class SofaGallery::Photo < ActiveRecord::Base
   upload_options = (SofaGallery.config.upload_options || {}).merge(
     :styles => lambda { |image|
       g = image.instance.gallery
-      f_settings = "#{g.full_width}x#{g.full_height}#{g.force_ratio?? '#' : '>'}"
-      t_settings = "#{g.thumb_width}x#{g.thumb_height}#{g.force_ratio?? '#' : '>'}"
+      f_settings = "#{g.full_width}x#{g.full_height}#{g.force_ratio_full?? '#' : '>'}"
+      t_settings = "#{g.thumb_width}x#{g.thumb_height}#{g.force_ratio_thumb?? '#' : '>'}"
       {
         :full         => { :geometry => f_settings, :processors => [:cropper] },
         :thumb        => { :geometry => t_settings, :processors => [:cropper] },

@@ -1,16 +1,7 @@
-ul.gallery {
-  width: 780px;
-  margin: 20px auto;
-  overflow: hidden; }
-  ul.gallery li {
-    border: 1px solid #cccccc;
-    background: #D8D8D8;
-    float: left;
-    padding: 5px;
-    text-align: center;
-    margin-right: 10px;
-    margin-bottom: 10px; 
-    cursor: move }
-    ul.gallery li .photo {
-      width: 130px;
-      height: 130px; }
+.dragger {
+    background: url("/assets/comfortable_mexican_sofa/icon_move.gif") repeat scroll 0 0 transparent;
+    cursor: move;
+    display: none;
+    height: 28px;
+    width: 28px;
+}

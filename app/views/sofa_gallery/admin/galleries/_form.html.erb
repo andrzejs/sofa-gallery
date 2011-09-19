@@ -4,8 +4,9 @@
 
 <%= form.text_field :full_width %>
 <%= form.text_field :full_height %>
-<%= form.check_box :force_ratio, :label => "Force Ratio" %>
+<%= form.check_box :force_ratio_full, :label => "Force Ratio" %>
 <%= form.text_field :thumb_width %>
 <%= form.text_field :thumb_height %>
+<%= form.check_box :force_ratio_thumb, :label => "Force Ratio" %>
 
 <%= form.submit 'Save'%>

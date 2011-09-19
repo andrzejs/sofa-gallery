@@ -6,5 +6,6 @@ default:
   full_height: 600
   thumb_width: 200
   thumb_height: 150
-  force_ratio: true
+  force_ratio_full: false
+  force_ratio_thumb: true
   

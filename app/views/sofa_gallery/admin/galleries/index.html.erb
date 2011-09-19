@@ -3,20 +3,40 @@
 <h1>Galleries</h1>
 
 <table class='formatted'>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Preview
+    </th>
+    <th>
+      URL
+    </th>
+    <th>
+      Embed Code
+    </th>
+    <th>
+      Actions
+    </th>
+  </tr>
   <% @galleries.each do |gallery| %>
     <tr>
       <td>
         <div class='title'>
           <%= link_to gallery.title, sofa_gallery_admin_gallery_photos_path(gallery) %>
         </div>
-        <div class='sublabel'>
-          <%= gallery.slug %>
-        </div>  
       </td>
       <td class='main'>
-        <% gallery.photos.limit(5).each do |photo| %>
+        <% gallery.photos.limit(4).each do |photo| %>
           <%= image_tag(photo.image.url(:admin_thumb)) %>
         <% end %>
+      </td>
+      <td>
+        <%= link_to sofa_gallery_gallery_path(gallery), sofa_gallery_gallery_path(gallery), :target => '_blank' %>
+      </td>
+      <td>
+        {{ cms:helper:render_gallery:<%= gallery.slug  %> }}
       </td>
       <td class='action_links'>
         <%= link_to 'Show Photos', sofa_gallery_admin_gallery_photos_path(gallery) %>
