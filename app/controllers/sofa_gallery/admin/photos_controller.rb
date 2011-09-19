@@ -41,7 +41,7 @@ class SofaGallery::Admin::PhotosController < SofaGallery::Admin::BaseController
   end
   
   def reorder
-    (params[:sofa_photo] || []).each_with_index do |id, index|
+    (params[:sofa_gallery_photo] || []).each_with_index do |id, index|
       if (photo = SofaGallery::Photo.find_by_id(id))
         photo.update_attribute(:position, index)
       end

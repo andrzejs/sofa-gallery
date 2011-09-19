@@ -99,14 +99,25 @@ class SofaGallery::Admin::PhotosControllerTest < ActionController::TestCase
     end
   end
   
-  def test_reorder
-    photo = sofa_gallery_photos(:default)
-    assert_equal 0, photo.position
-    xhr :post, :reorder, :gallery_id => photo.gallery, :sofa_photo => ['dummy', photo.id]
+  def test_reorder    
+    gallery = sofa_gallery_galleries(:default)
+    photo_one = sofa_gallery_photos(:default)
+    photo_two = SofaGallery::Photo.create!(
+      :gallery  => gallery,
+      :title    => 'Test Photo',
+      :slug     => 'test-photo',
+      :image    => fixture_file_upload('/files/default.jpg', 'image/jpeg')
+    )
+    assert_equal 0, photo_one.position
+    assert_equal 1, photo_two.position
+
+    post :reorder, :gallery_id => photo_one.gallery, :sofa_gallery_photo => [photo_two.id, photo_one.id]
     assert_response :success
-    
-    photo.reload
-    assert_equal 1, photo.position
+    photo_one.reload
+    photo_two.reload
+
+    assert_equal 1, photo_one.position
+    assert_equal 0, photo_two.position
   end
   
   def test_get_crop
