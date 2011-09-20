@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sofa_gallery}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oleg Khabarov", "Stephen McLeod", "The Working Group Inc."]
-  s.date = %q{2011-06-16}
+  s.date = %q{2011-09-20}
   s.description = %q{}
   s.email = %q{stephen@theworkinggroup.ca}
   s.extra_rdoc_files = [
@@ -25,32 +25,83 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "app/assets/images/sofa_gallery/jcrop.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/btnNext.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/btnPrevious.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/contentPattern.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/default_thumbnail.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/loader.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/sprite.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_square/btnNext.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_square/btnPrevious.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_square/contentPattern.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_square/default_thumbnail.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_square/loader.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/dark_square/sprite.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/default/default_thumb.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/default/loader.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/default/sprite.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/default/sprite_next.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/default/sprite_prev.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/default/sprite_x.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/default/sprite_y.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/btnNext.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/btnPrevious.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/contentPatternBottom.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/contentPatternLeft.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/contentPatternRight.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/contentPatternTop.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/default_thumbnail.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/loader.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/facebook/sprite.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_rounded/btnNext.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_rounded/btnPrevious.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_rounded/default_thumbnail.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_rounded/loader.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_rounded/sprite.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_square/btnNext.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_square/btnPrevious.png",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_square/default_thumbnail.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_square/loader.gif",
+    "app/assets/images/sofa_gallery/prettyPhoto/light_square/sprite.png",
+    "app/assets/javascripts/sofa_gallery/admin.js",
     "app/assets/javascripts/sofa_gallery/application.js",
+    "app/assets/javascripts/sofa_gallery/carousel.js",
     "app/assets/javascripts/sofa_gallery/jquery.jcrop.js",
-    "app/assets/javascripts/sofa_gallery/jquery.js",
-    "app/assets/javascripts/sofa_gallery/jquery_ui.js",
-    "app/assets/javascripts/sofa_gallery/rails.js",
+    "app/assets/javascripts/sofa_gallery/thumbnails.js",
+    "app/assets/stylesheets/sofa_gallery/admin.css",
     "app/assets/stylesheets/sofa_gallery/application.css",
+    "app/assets/stylesheets/sofa_gallery/carousel.css",
     "app/assets/stylesheets/sofa_gallery/jquery.jcrop.css",
     "app/assets/stylesheets/sofa_gallery/reset.css",
+    "app/assets/stylesheets/sofa_gallery/tango/credits.txt",
+    "app/assets/stylesheets/sofa_gallery/tango/next-horizontal.png",
+    "app/assets/stylesheets/sofa_gallery/tango/next-vertical.png",
+    "app/assets/stylesheets/sofa_gallery/tango/prev-horizontal.png",
+    "app/assets/stylesheets/sofa_gallery/tango/prev-vertical.png",
+    "app/assets/stylesheets/sofa_gallery/thumbnails.css.scss",
     "app/controllers/application_controller.rb",
-    "app/controllers/gallery_admin/base_controller.rb",
-    "app/controllers/gallery_admin/galleries_controller.rb",
-    "app/controllers/gallery_admin/photos_controller.rb",
+    "app/controllers/sofa_gallery/admin/base_controller.rb",
+    "app/controllers/sofa_gallery/admin/galleries_controller.rb",
+    "app/controllers/sofa_gallery/admin/photos_controller.rb",
+    "app/controllers/sofa_gallery/galleries_controller.rb",
     "app/helpers/sofa_gallery_helper.rb",
-    "app/models/sofa/gallery.rb",
-    "app/models/sofa/photo.rb",
-    "app/views/gallery_admin/_navigation.html.erb",
-    "app/views/gallery_admin/galleries/_form.html.erb",
-    "app/views/gallery_admin/galleries/edit.html.erb",
-    "app/views/gallery_admin/galleries/index.html.erb",
-    "app/views/gallery_admin/galleries/new.html.erb",
-    "app/views/gallery_admin/photos/_form.html.erb",
-    "app/views/gallery_admin/photos/crop.html.erb",
-    "app/views/gallery_admin/photos/edit.html.erb",
-    "app/views/gallery_admin/photos/index.html.erb",
-    "app/views/gallery_admin/photos/new.html.erb",
+    "app/models/sofa_gallery/gallery.rb",
+    "app/models/sofa_gallery/photo.rb",
     "app/views/layouts/gallery_admin/application.html.erb",
+    "app/views/sofa_gallery/_carousel.html.erb",
+    "app/views/sofa_gallery/_thumbnails.html.erb",
+    "app/views/sofa_gallery/admin/_html_head.html.erb",
+    "app/views/sofa_gallery/admin/_navigation.html.erb",
+    "app/views/sofa_gallery/admin/galleries/_form.html.erb",
+    "app/views/sofa_gallery/admin/galleries/edit.html.erb",
+    "app/views/sofa_gallery/admin/galleries/index.html.erb",
+    "app/views/sofa_gallery/admin/galleries/new.html.erb",
+    "app/views/sofa_gallery/admin/photos/_form.html.erb",
+    "app/views/sofa_gallery/admin/photos/crop.html.erb",
+    "app/views/sofa_gallery/admin/photos/edit.html.erb",
+    "app/views/sofa_gallery/admin/photos/index.html.erb",
+    "app/views/sofa_gallery/admin/photos/new.html.erb",
+    "app/views/sofa_gallery/galleries/show.html.erb",
     "config.ru",
     "config/application.rb",
     "config/boot.rb",
@@ -74,10 +125,12 @@ Gem::Specification.new do |s|
     "sofa_gallery.gemspec",
     "test/fixtures/files/default.jpg",
     "test/fixtures/files/default.txt",
-    "test/fixtures/sofa/galleries.yml",
-    "test/fixtures/sofa/photos.yml",
+    "test/fixtures/files/default2.jpg",
+    "test/fixtures/sofa_gallery/galleries.yml",
+    "test/fixtures/sofa_gallery/photos.yml",
+    "test/functional/admin/galleries_controller_test.rb",
+    "test/functional/admin/photos_controller_test.rb",
     "test/functional/galleries_controller_test.rb",
-    "test/functional/photos_controller_test.rb",
     "test/test_helper.rb",
     "test/unit/configuration_test.rb",
     "test/unit/gallery_test.rb",
@@ -86,26 +139,32 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/twg/sofa-gallery}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.7.2}
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{SofaGallery is an image gallery engine for Rails 3.1 apps (and ComfortableMexicanSofa)}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rails>, [">= 3.1.0.rc4"])
-      s.add_runtime_dependency(%q<paperclip>, [">= 0"])
+      s.add_runtime_dependency(%q<rails>, [">= 3.1.0"])
+      s.add_runtime_dependency(%q<paperclip>, [">= 2.3.14"])
+      s.add_runtime_dependency(%q<jquery-rails>, ["= 1.0.14"])
+      s.add_runtime_dependency(%q<sass-rails>, [">= 0"])
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
-      s.add_dependency(%q<rails>, [">= 3.1.0.rc4"])
-      s.add_dependency(%q<paperclip>, [">= 0"])
+      s.add_dependency(%q<rails>, [">= 3.1.0"])
+      s.add_dependency(%q<paperclip>, [">= 2.3.14"])
+      s.add_dependency(%q<jquery-rails>, ["= 1.0.14"])
+      s.add_dependency(%q<sass-rails>, [">= 0"])
       s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
-    s.add_dependency(%q<rails>, [">= 3.1.0.rc4"])
-    s.add_dependency(%q<paperclip>, [">= 0"])
+    s.add_dependency(%q<rails>, [">= 3.1.0"])
+    s.add_dependency(%q<paperclip>, [">= 2.3.14"])
+    s.add_dependency(%q<jquery-rails>, ["= 1.0.14"])
+    s.add_dependency(%q<sass-rails>, [">= 0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
