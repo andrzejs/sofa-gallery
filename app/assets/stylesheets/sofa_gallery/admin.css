@@ -1,0 +1,13 @@
+.dragger {
+  cursor: move;
+}
+
+.submit_element .value span, #cancel_btn {
+  margin-right: 5px;
+  float: right;
+  padding: 3px 0;
+}
+
+.submit_element .value span {
+  margin: 0 5px;
+}

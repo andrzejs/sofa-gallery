@@ -9,5 +9,8 @@
 <% end %>
 <%= form.file_field :image %>
 <%= form.text_area :description %>
-
-<%= form.submit 'Save'%>
+<%= form.simple_field nil, nil, :class => 'submit_element' do %>
+  <%= link_to "Cancel", sofa_gallery_admin_gallery_photos_path(@photo.gallery), :id => 'cancel_btn' %>
+  <span>or</span>
+  <%= form.submit "Save", :disable_builder => true%>
+<% end %>

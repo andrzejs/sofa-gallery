@@ -2,6 +2,7 @@
 <%= form.text_field :slug, :id => 'slug' %>
 <%= form.text_area  :description%>
 
+<%= form.text_field :gallery_width %>
 <%= form.text_field :full_width %>
 <%= form.text_field :full_height %>
 <%= form.check_box :force_ratio_full, :label => "Force Ratio" %>
@@ -9,4 +10,8 @@
 <%= form.text_field :thumb_height %>
 <%= form.check_box :force_ratio_thumb, :label => "Force Ratio" %>
 
-<%= form.submit 'Save'%>
+<%= form.simple_field nil, nil, :class => 'submit_element' do %>
+  <%= link_to "Cancel", sofa_gallery_admin_galleries_path, :id => 'cancel_btn' %>
+  <span>or</span>
+  <%= form.submit "Save", :disable_builder => true%>
+<% end %>

@@ -8,8 +8,8 @@ class SofaGallery::Photo < ActiveRecord::Base
       f_settings = "#{g.full_width}x#{g.full_height}#{g.force_ratio_full?? '#' : '>'}"
       t_settings = "#{g.thumb_width}x#{g.thumb_height}#{g.force_ratio_thumb?? '#' : '>'}"
       {
-        :full         => { :geometry => f_settings, :processors => [:cropper] },
-        :thumb        => { :geometry => t_settings, :processors => [:cropper] },
+        :full         => { :geometry => f_settings, :processors => [:full_cropper] },
+        :thumb        => { :geometry => t_settings, :processors => [:thumb_cropper] },
         :admin_full   => '800x600>',
         :admin_thumb  => '40x30#'
       }
@@ -17,7 +17,8 @@ class SofaGallery::Photo < ActiveRecord::Base
   )
   has_attached_file :image, upload_options 
   
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessor :thumb_crop_x, :thumb_crop_y, :thumb_crop_w, :thumb_crop_h, 
+                :full_crop_x, :full_crop_y, :full_crop_w, :full_crop_h
   
   # -- Relationships --------------------------------------------------------
   belongs_to :gallery
@@ -47,7 +48,15 @@ class SofaGallery::Photo < ActiveRecord::Base
   end
   
   def cropping?
-    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+    cropping_thumb? || cropping_full?
+  end
+  
+  def cropping_thumb?
+    !thumb_crop_x.blank? && !thumb_crop_y.blank? && !thumb_crop_w.blank? && !thumb_crop_h.blank?
+  end
+  
+  def cropping_full?
+    !full_crop_x.blank? && !full_crop_y.blank? && !full_crop_w.blank? && !full_crop_h.blank?
   end
   
 private

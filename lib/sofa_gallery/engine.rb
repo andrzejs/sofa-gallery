@@ -14,7 +14,8 @@ module CmsGallery
           conf.form_builder       = 'ComfortableMexicanSofa::FormBuilder'
         end
         # applying nav elements
-        ComfortableMexicanSofa::ViewHooks.add(:navigation, '/gallery_admin/navigation')
+        ComfortableMexicanSofa::ViewHooks.add(:navigation, '/sofa_gallery/admin/navigation')
+        ComfortableMexicanSofa::ViewHooks.add(:html_head, '/sofa_gallery/admin/html_head')
       end
     end
   end

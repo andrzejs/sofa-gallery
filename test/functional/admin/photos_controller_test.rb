@@ -131,4 +131,47 @@ class SofaGallery::Admin::PhotosControllerTest < ActionController::TestCase
     assert assigns(:photo)
   end
   
+  def test_crop_thumbnail
+    photo = sofa_gallery_photos(:default)
+    put :update, :gallery_id => photo.gallery, :id => photo, :photo => {
+      :thumb_crop_x => '0', 
+      :thumb_crop_y => '0', 
+      :thumb_crop_w => '100', 
+      :thumb_crop_h => '100'
+    }
+    
+    assert_response :redirect
+    assert_redirected_to :action => :index
+    assert_equal 'Photo updated', flash[:notice]
+  end
+  
+  
+  def test_crop_thumbnail_and_full
+    gallery = SofaGallery::Gallery.create!(
+      :title            => "Title",
+      :slug             => "title",
+      :force_ratio_full => true
+    )
+    photo = SofaGallery::Photo.create!(
+      :gallery  => gallery,
+      :title    => 'Test Photo',
+      :slug     => 'test-photo',
+      :image    => fixture_file_upload('/files/default.jpg', 'image/jpeg')
+    )
+    put :update, :gallery_id => gallery, :id => photo, :photo => {
+      :thumb_crop_x => '0', 
+      :thumb_crop_y => '0', 
+      :thumb_crop_w => '100', 
+      :thumb_crop_h => '100',
+      :full_crop_x => '0', 
+      :full_crop_y => '0', 
+      :full_crop_w => '100', 
+      :full_crop_h => '100'
+    }
+    
+    assert_response :redirect
+    assert_redirected_to :action => :index
+    assert_equal 'Photo updated', flash[:notice]
+  end
+  
 end

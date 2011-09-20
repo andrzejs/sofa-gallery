@@ -1,18 +1,1 @@
-<% if @gallery %>
-  <% content_for :head do %>
-    <%= stylesheet_link_tag "sofa_gallery/sofa_gallery_thumbnails.css" %>
-    <%= javascript_include_tag "sofa_gallery/sofa_gallery_thumbnails.js" %>
-  <% end %>
-  <ul style="width: <%= (@gallery.thumb_width + 6) * 3 %>px; margin: 25px auto; padding: 25px !important; background: #eeeeee; list-style-type: none;">
-    <% @gallery.photos.each do |photo| %>
-      <li id="<%= dom_id(photo) %>" style="float: left;">
-        <%= link_to photo.image.url(:original), :rel => 'prettyPhoto', :title => photo.description, :style => "display: block; width: #{@gallery.thumb_width}px;  height: #{@gallery.thumb_height}px; text-align: center; border: 3px solid #c0c0c0;" do %>
-          <%= image_tag(photo.image.url(:thumb), :alt => photo.description) %>
-        <% end %>
-      </li>
-    <% end %>
-    <div style="clear: both;"></div>
-  </ul>
-<% else %>
-  Gallery not found.
-<% end %>
+<%= render :partial => 'sofa_gallery/thumbnails' %>
