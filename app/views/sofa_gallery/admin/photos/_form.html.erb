@@ -4,7 +4,7 @@
   <%= form.simple_field 'Current Image' do %>
     <%= image_tag(@photo.image.url(:thumb)) %>
     <br/>
-    <%= link_to 'Crop Image', crop_sofa_gallery_admin_gallery_photo_path(@gallery, @photo) %>
+    <%= link_to 'Crop Image', crop_sofa_gallery_admin_gallery_photo_path(@gallery, @photo) if @photo.force_aspect? %>
   <% end %>
 <% end %>
 <%= form.file_field :image %>

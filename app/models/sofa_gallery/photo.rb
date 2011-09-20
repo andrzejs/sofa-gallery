@@ -47,6 +47,10 @@ class SofaGallery::Photo < ActiveRecord::Base
     @geometry[style] ||= Paperclip::Geometry.from_file(image.path(style))
   end
   
+  def force_aspect?
+    self.gallery.force_ratio_full? || self.gallery.force_ratio_thumb?    
+  end
+  
   def cropping?
     cropping_thumb? || cropping_full?
   end

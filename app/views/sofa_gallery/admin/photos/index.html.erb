@@ -14,7 +14,7 @@
           <div class='sublabel'><%= photo.slug %></div>
         </td>
         <td class='action_links'>
-          <%= link_to 'Crop', crop_sofa_gallery_admin_gallery_photo_path(@gallery, photo) %>
+          <%= link_to 'Crop', crop_sofa_gallery_admin_gallery_photo_path(@gallery, photo) if photo.force_aspect? %>
           <%= link_to 'Edit', edit_sofa_gallery_admin_gallery_photo_path(@gallery, photo) %>
           <%= link_to 'Delete', sofa_gallery_admin_gallery_photo_path(@gallery, photo), :method => :delete, :confirm => 'Are you sure?' %>
         </td>
