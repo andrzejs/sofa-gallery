@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oleg Khabarov", "Stephen McLeod", "The Working Group Inc."]
-  s.date = %q{2011-09-20}
+  s.date = %q{2011-09-21}
   s.description = %q{}
   s.email = %q{stephen@theworkinggroup.ca}
   s.extra_rdoc_files = [
@@ -78,7 +78,7 @@ Gem::Specification.new do |s|
     "app/assets/stylesheets/sofa_gallery/tango/next-vertical.png",
     "app/assets/stylesheets/sofa_gallery/tango/prev-horizontal.png",
     "app/assets/stylesheets/sofa_gallery/tango/prev-vertical.png",
-    "app/assets/stylesheets/sofa_gallery/thumbnails.css.scss",
+    "app/assets/stylesheets/sofa_gallery/thumbnails.css.erb",
     "app/controllers/application_controller.rb",
     "app/controllers/sofa_gallery/admin/base_controller.rb",
     "app/controllers/sofa_gallery/admin/galleries_controller.rb",
@@ -149,14 +149,12 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rails>, [">= 3.1.0"])
       s.add_runtime_dependency(%q<paperclip>, [">= 2.3.14"])
       s.add_runtime_dependency(%q<jquery-rails>, ["= 1.0.14"])
-      s.add_runtime_dependency(%q<sass-rails>, [">= 0"])
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
       s.add_dependency(%q<rails>, [">= 3.1.0"])
       s.add_dependency(%q<paperclip>, [">= 2.3.14"])
       s.add_dependency(%q<jquery-rails>, ["= 1.0.14"])
-      s.add_dependency(%q<sass-rails>, [">= 0"])
       s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
@@ -164,7 +162,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rails>, [">= 3.1.0"])
     s.add_dependency(%q<paperclip>, [">= 2.3.14"])
     s.add_dependency(%q<jquery-rails>, ["= 1.0.14"])
-    s.add_dependency(%q<sass-rails>, [">= 0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
