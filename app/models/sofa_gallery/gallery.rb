@@ -1,5 +1,7 @@
 class SofaGallery::Gallery < ActiveRecord::Base
   
+  cms_is_categorized if defined?(ComfortableMexicanSofa)
+
   set_table_name :sofa_gallery_galleries
   
   # -- Relationships --------------------------------------------------------
