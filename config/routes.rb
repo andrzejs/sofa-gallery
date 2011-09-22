@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   namespace :sofa_gallery, :path => '' do
     
-    resources :galleries, :only => :show
+    resources :galleries, :only => [:show, :index]
     
     namespace :admin, :path => SofaGallery.config.admin_route_prefix do
       resources :galleries do

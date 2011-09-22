@@ -11,3 +11,11 @@
 .submit_element .value span {
   margin: 0 5px;
 }
+
+#cms_body table.formatted td.preview  {
+  height: 45px;
+}
+
+#cms_body table.formatted td.embed {
+  font-size: 8px;
+}

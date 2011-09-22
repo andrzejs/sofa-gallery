@@ -1,1 +1,7 @@
-<%= render :partial => 'sofa_gallery/thumbnails' %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "sofa_gallery/gallery_list.css" %>
+<% end %>
+<div class="galleries" style="width: <%= @gallery.gallery_width %>px;">
+  <%= link_to "« View All Galleries", sofa_gallery_galleries_path %>
+  <%= render :partial => 'sofa_gallery/thumbnails' %>
+</div>

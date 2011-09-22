@@ -4,15 +4,22 @@
     <%= javascript_include_tag "sofa_gallery/thumbnails.js" %>
   <% end %>
   <ul id="<%= dom_id(@gallery)%>" class="gallery" style="width: <%= @gallery.gallery_width %>px;">
-    <% @gallery.photos.each do |photo| %>
-      <li id="<%= dom_id(photo) %>">
-        <div class="photo" style="width: <%= @gallery.thumb_width %>px; height: <%= @gallery.thumb_height %>px;">
-          <%= link_to photo.image.url(:full), :rel => "prettyPhoto[pp_gal]", :title => photo.description do %>
-            <%= image_tag(photo.image.url(:thumb), :alt => photo.description) %>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
+    <h2><%= @gallery.title %></h2>
+    <p><%= @gallery.description %></p>
+    <br />
+    <% if @gallery.photos.count > 0 %>
+      <% @gallery.photos.each do |photo| %>
+        <li id="<%= dom_id(photo) %>">
+          <div class="photo" style="width: <%= @gallery.thumb_width %>px; height: <%= @gallery.thumb_height %>px;">
+            <%= link_to photo.image.url(:full), :rel => "prettyPhoto[pp_gal]", :title => photo.description do %>
+              <%= image_tag(photo.image.url(:thumb), :alt => photo.description) %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    <% else %>
+      <em>No photos in this gallery.</em>
+    <% end  %>
   </ul>
 <% else %>
   Gallery not found.

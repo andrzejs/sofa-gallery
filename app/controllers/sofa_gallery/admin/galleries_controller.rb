@@ -4,7 +4,11 @@ class SofaGallery::Admin::GalleriesController < SofaGallery::Admin::BaseControll
   before_filter :build_gallery, :only   => [:new, :create]
   
   def index
-    @galleries = SofaGallery::Gallery.all
+    if params[:category].present?
+      @galleries = SofaGallery::Gallery.for_category(params[:category]).all
+    else
+      @galleries = SofaGallery::Gallery.all
+    end
   end
   
   def new

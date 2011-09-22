@@ -2,13 +2,17 @@
 
 <h1>Galleries</h1>
 
+<%= render :partial => 'cms_admin/categories/index', :object => 'SofaGallery::Gallery' %>
+
+<br />
+
 <table class='formatted'>
   <tr>
     <th>
-      Name
+      Preview
     </th>
     <th>
-      Preview
+      Name
     </th>
     <th>
       URL
@@ -22,20 +26,18 @@
   </tr>
   <% @galleries.each do |gallery| %>
     <tr>
-      <td>
-        <div class='title'>
-          <%= link_to gallery.title, sofa_gallery_admin_gallery_photos_path(gallery) %>
-        </div>
-      </td>
-      <td class='main'>
-        <% gallery.photos.limit(4).each do |photo| %>
+      <td class='preview'>
+        <% gallery.photos.limit(1).each do |photo| %>
           <%= image_tag(photo.image.url(:admin_thumb)) %>
         <% end %>
+      </td>
+      <td class='main'>
+        <%= link_to gallery.title, sofa_gallery_admin_gallery_photos_path(gallery) %>
       </td>
       <td>
         <%= link_to sofa_gallery_gallery_path(gallery), sofa_gallery_gallery_path(gallery), :target => '_blank' %>
       </td>
-      <td>
+      <td class='embed'>
         {{ cms:helper:render_gallery:<%= gallery.slug  %> }}
       </td>
       <td class='action_links'>

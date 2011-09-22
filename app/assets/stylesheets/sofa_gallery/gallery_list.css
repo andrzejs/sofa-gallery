@@ -1,0 +1,17 @@
+.galleries {
+  overflow: hidden;
+  margin: 0 auto; }
+  .sofa_gallery {
+    background: #eee; 
+    overflow: hidden; 
+    padding: 20px; 
+    border-radius: 5px; 
+    margin: 0 auto 15px; 
+    width: 675px; }
+    .sofa_gallery .photo_preview {
+      width: 150px;
+      float: left; 
+      min-height: 50px;}
+    .sofa_gallery .photo_text {
+      width: 520px; 
+      float: left; }

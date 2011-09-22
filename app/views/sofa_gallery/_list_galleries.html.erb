@@ -1,0 +1,26 @@
+<% if @galleries %>
+  <% content_for :head do %>
+    <%= stylesheet_link_tag "sofa_gallery/gallery_list.css" %>
+  <% end %>
+  <% @galleries.each do |gallery| %>
+    <div class="sofa_gallery">
+      <div class="photo_preview">
+        <% gallery.photos.limit(6).each do |photo| %>
+          <%= image_tag(photo.image.url(:admin_thumb), :alt => photo.description) %>
+        <% end %>
+      </div>
+      <div class="photo_text">
+        <h2><%= link_to gallery.title, sofa_gallery_gallery_path(gallery) %></h2>
+        <p><%= gallery.description.truncate(200) %></p>
+        <% if (count = gallery.photos.count) > 0 %>
+          <%= link_to "View all #{count} photos.", sofa_gallery_gallery_path(gallery), :class => 'view_more' %>
+        <% else %>
+          <em>No photos in this gallery.</em>
+        <% end  %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  No galleries were found.
+<% end %>
+
