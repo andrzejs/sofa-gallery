@@ -14,6 +14,7 @@ begin
     gem.description = ''
     gem.email       = 'stephen@theworkinggroup.ca'
     gem.authors     = ['Oleg Khabarov', 'Stephen McLeod', 'The Working Group Inc.']
+    gem.version     = File.read('VERSION').chomp
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

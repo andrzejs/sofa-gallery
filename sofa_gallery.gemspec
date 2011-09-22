@@ -4,20 +4,21 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{sofa_gallery}
+  s.name = "sofa_gallery"
   s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oleg Khabarov", "Stephen McLeod", "The Working Group Inc."]
-  s.date = %q{2011-09-21}
-  s.description = %q{}
-  s.email = %q{stephen@theworkinggroup.ca}
+  s.date = "2011-09-22"
+  s.description = ""
+  s.email = "stephen@theworkinggroup.ca"
   s.extra_rdoc_files = [
     "LICENSE",
     "README.md"
   ]
   s.files = [
     ".document",
+    ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE",
@@ -71,6 +72,7 @@ Gem::Specification.new do |s|
     "app/assets/stylesheets/sofa_gallery/admin.css",
     "app/assets/stylesheets/sofa_gallery/application.css",
     "app/assets/stylesheets/sofa_gallery/carousel.css",
+    "app/assets/stylesheets/sofa_gallery/gallery_list.css",
     "app/assets/stylesheets/sofa_gallery/jquery.jcrop.css",
     "app/assets/stylesheets/sofa_gallery/reset.css",
     "app/assets/stylesheets/sofa_gallery/tango/credits.txt",
@@ -89,6 +91,7 @@ Gem::Specification.new do |s|
     "app/models/sofa_gallery/photo.rb",
     "app/views/layouts/gallery_admin/application.html.erb",
     "app/views/sofa_gallery/_carousel.html.erb",
+    "app/views/sofa_gallery/_list_galleries.html.erb",
     "app/views/sofa_gallery/_thumbnails.html.erb",
     "app/views/sofa_gallery/admin/_html_head.html.erb",
     "app/views/sofa_gallery/admin/_navigation.html.erb",
@@ -101,6 +104,7 @@ Gem::Specification.new do |s|
     "app/views/sofa_gallery/admin/photos/edit.html.erb",
     "app/views/sofa_gallery/admin/photos/index.html.erb",
     "app/views/sofa_gallery/admin/photos/new.html.erb",
+    "app/views/sofa_gallery/galleries/index.html.erb",
     "app/views/sofa_gallery/galleries/show.html.erb",
     "config.ru",
     "config/application.rb",
@@ -136,11 +140,11 @@ Gem::Specification.new do |s|
     "test/unit/gallery_test.rb",
     "test/unit/photo_test.rb"
   ]
-  s.homepage = %q{http://github.com/twg/sofa-gallery}
+  s.homepage = "http://github.com/twg/sofa-gallery"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{SofaGallery is an image gallery engine for Rails 3.1 apps (and ComfortableMexicanSofa)}
+  s.rubygems_version = "1.8.10"
+  s.summary = "SofaGallery is an image gallery engine for Rails 3.1 apps (and ComfortableMexicanSofa)"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
