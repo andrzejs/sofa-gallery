@@ -3,7 +3,7 @@
     <%= stylesheet_link_tag "sofa_gallery/thumbnails.css" %>
     <%= javascript_include_tag "sofa_gallery/thumbnails.js" %>
   <% end %>
-  <ul id="<%= dom_id(@gallery)%>" class="gallery" style="width: <%= @gallery.gallery_width %>px;">
+  <ul id="<%= dom_id(@gallery)%>" class="gallery">
     <h2><%= @gallery.title %></h2>
     <p><%= @gallery.description %></p>
     <br />

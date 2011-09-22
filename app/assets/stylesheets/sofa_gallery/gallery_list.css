@@ -1,6 +1,7 @@
 .galleries {
   overflow: hidden;
-  margin: 0 auto; }
+  margin: 0 auto; 
+  width: 720px; }
   .sofa_gallery {
     background: #eee; 
     overflow: hidden; 
