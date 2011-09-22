@@ -2,7 +2,6 @@ default:
   title: Default Gallery
   slug: default-gallery
   description: Gallery Description
-  gallery_width: 640
   full_width: 800
   full_height: 600
   force_ratio_full: false
