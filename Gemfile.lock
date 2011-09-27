@@ -100,7 +100,7 @@ PLATFORMS
 
 DEPENDENCIES
   jeweler
-  jquery-rails (= 1.0.14)
+  jquery-rails (>= 1.0.14)
   paperclip (>= 2.3.14)
   rails (>= 3.1.0)
   sqlite3
