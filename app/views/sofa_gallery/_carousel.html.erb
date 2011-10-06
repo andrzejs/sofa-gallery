@@ -1,17 +1,31 @@
 <% if @gallery %>
+  <!--[if IE]>
+       <style type="text/css">
+           .timer { display: none !important; }
+           div.caption { background:transparent; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);zoom: 1; }
+      </style>
+  <![endif]-->
   <% content_for :head do %>
-    <%= stylesheet_link_tag "/assets/sofa_gallery/sofa_gallery_carousel.css" %>
-    <%= javascript_include_tag "/assets/sofa_gallery/sofa_gallery_carousel.js" %>
+    <%= javascript_include_tag "sofa_gallery/jquery.orbit-1.2.3.min.js" %>
+    <%= stylesheet_link_tag "sofa_gallery/carousel.css" %>
   <% end %>
-  <ul id="cms_carousel" class="jcarousel-skin-tango">
-    <% @gallery.photos.each do |photo| %>
-      <li id="<%= dom_id(photo) %>">
-        <div class="photo">
-          <%= link_to image_tag(photo.image.url(:full), :alt => photo.description), photo.url %>
-        </div>
-      </li>
+  <% content_for :doc_ready do %>
+    $('#featured').orbit();
+  <% end %>
+  <% if @gallery.photos.count > 0 %>
+    <div id="featured">
+      <% @gallery.photos.each do |photo| %>
+        <%= photo.image.url(:full), :alt => photo.description, :id => dom_id(photo), :"data-caption" => "##{dom_id(photo)}htmlCaption" %>
+      <% end %>
+    </div>
+    <% @gallery.photos.reject{|p| p.description.blank?}.each do |photo| %>
+      <span class="orbit-caption" id="<%=dom_id(photo)%>htmlCaption">
+        <%= photo.description %>
+      </span>
     <% end %>
-  </ul>
+  <% else %>
+    <em>No photos in this gallery.</em>
+  <% end %>
 <% else %>
-  Gallery not found.
+  No images were found.
 <% end %>

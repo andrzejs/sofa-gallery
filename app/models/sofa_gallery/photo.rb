@@ -41,6 +41,10 @@ class SofaGallery::Photo < ActiveRecord::Base
   # -- Scopes ---------------------------------------------------------------
   default_scope order(:position)
   
+  scope :order_by, lambda { |order|
+    ( order ? order('RANDOM()') : order(:position) )
+  }
+  
   # -- Instance Methods -----------------------------------------------------
   def image_geometry(style = :original)
     @geometry ||= {}
