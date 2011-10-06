@@ -26,7 +26,7 @@ class SofaGallery::Admin::PhotosController < SofaGallery::Admin::BaseController
   end
   
   def update
-    @photo.update_attributes!(params[:photo])
+    @photo.update_attributes!(params[:sofa_gallery_photo])
     flash[:notice] = 'Photo updated'
     redirect_to :action => :index
   rescue ActiveRecord::RecordInvalid
@@ -70,7 +70,7 @@ protected
   end
   
   def build_photo
-    @photo = SofaGallery::Photo.new({:gallery => @gallery}.merge(params[:photo] || {}))
+    @photo = SofaGallery::Photo.new({:gallery => @gallery}.merge(params[:sofa_gallery_photo] || {}))
   end
   
 end
