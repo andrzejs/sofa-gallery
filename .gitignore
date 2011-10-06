@@ -9,3 +9,4 @@ public/*
 db/dumps/
 .rvmrc
 log/*
+Gemfile.lock
