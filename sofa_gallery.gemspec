@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oleg Khabarov", "Stephen McLeod", "The Working Group Inc."]
-  s.date = "2011-10-03"
+  s.date = "2011-10-06"
   s.description = ""
   s.email = "stephen@theworkinggroup.ca"
   s.extra_rdoc_files = [
@@ -25,6 +25,14 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "app/assets/images/sofa_gallery/jcrop.gif",
+    "app/assets/images/sofa_gallery/orbit/bullets.jpg",
+    "app/assets/images/sofa_gallery/orbit/left-arrow.png",
+    "app/assets/images/sofa_gallery/orbit/loading.gif",
+    "app/assets/images/sofa_gallery/orbit/mask-black.png",
+    "app/assets/images/sofa_gallery/orbit/pause-black.png",
+    "app/assets/images/sofa_gallery/orbit/right-arrow.png",
+    "app/assets/images/sofa_gallery/orbit/rotator-black.png",
+    "app/assets/images/sofa_gallery/orbit/timer-black.png",
     "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/btnNext.png",
     "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/btnPrevious.png",
     "app/assets/images/sofa_gallery/prettyPhoto/dark_rounded/contentPattern.png",
@@ -65,20 +73,15 @@ Gem::Specification.new do |s|
     "app/assets/images/sofa_gallery/prettyPhoto/light_square/sprite.png",
     "app/assets/javascripts/sofa_gallery/admin.js",
     "app/assets/javascripts/sofa_gallery/application.js",
-    "app/assets/javascripts/sofa_gallery/carousel.js",
     "app/assets/javascripts/sofa_gallery/jquery.jcrop.js",
+    "app/assets/javascripts/sofa_gallery/jquery.orbit-1.2.3.min.js",
     "app/assets/javascripts/sofa_gallery/thumbnails.js",
     "app/assets/stylesheets/sofa_gallery/admin.css",
     "app/assets/stylesheets/sofa_gallery/application.css",
-    "app/assets/stylesheets/sofa_gallery/carousel.css",
+    "app/assets/stylesheets/sofa_gallery/carousel.css.erb",
     "app/assets/stylesheets/sofa_gallery/gallery_list.css",
     "app/assets/stylesheets/sofa_gallery/jquery.jcrop.css",
     "app/assets/stylesheets/sofa_gallery/reset.css",
-    "app/assets/stylesheets/sofa_gallery/tango/credits.txt",
-    "app/assets/stylesheets/sofa_gallery/tango/next-horizontal.png",
-    "app/assets/stylesheets/sofa_gallery/tango/next-vertical.png",
-    "app/assets/stylesheets/sofa_gallery/tango/prev-horizontal.png",
-    "app/assets/stylesheets/sofa_gallery/tango/prev-vertical.png",
     "app/assets/stylesheets/sofa_gallery/thumbnails.css.erb",
     "app/controllers/application_controller.rb",
     "app/controllers/sofa_gallery/admin/base_controller.rb",
