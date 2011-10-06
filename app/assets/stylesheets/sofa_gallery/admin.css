@@ -12,6 +12,8 @@
   margin: 0 5px;
 }
 
+/* -- Table --------------------------------------------------------------- */
+
 #cms_body table.formatted td.preview  {
   height: 45px;
 }
@@ -19,3 +21,37 @@
 #cms_body table.formatted td.embed {
   font-size: 8px;
 }
+
+#cms_body table.formatted {
+  width: 100%;
+}
+  
+#cms_body table.formatted th, td {
+  white-space: nowrap;
+  padding: 6px;
+  background-color: #f1f1f1;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+    
+
+#cms_body table.formatted th.main, td.main {
+  white-space: normal;
+  width: 100%;
+}
+#cms_body table.formatted th {
+      background-color: #252525;
+      color: #f7f7f7;
+      font-size: 12px;
+}
+#cms_body table.formatted th:first-child {
+  border-radius: 5px 0px 0px 5px;
+}
+#cms_body table.formatted th:last-child {
+  border-radius: 0px 5px 5px 0px
+}
+
+#cms_body table.formatted tr:hover td {
+  background-color: #fff
+}
+      
