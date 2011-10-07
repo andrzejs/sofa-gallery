@@ -27,7 +27,7 @@ class SofaGallery::Admin::PhotosControllerTest < ActionController::TestCase
 
   def test_creation
     assert_difference 'SofaGallery::Photo.count' do
-      post :create, :gallery_id => sofa_gallery_galleries(:default), :photo => {
+      post :create, :gallery_id => sofa_gallery_galleries(:default), :sofa_gallery_photo => {
         :title  => 'Test Photo',
         :slug   => 'test-photo',
         :image  => fixture_file_upload('/files/default.jpg', 'image/jpeg')
@@ -40,7 +40,7 @@ class SofaGallery::Admin::PhotosControllerTest < ActionController::TestCase
 
   def test_creation_fail
     assert_no_difference 'SofaGallery::Photo.count' do
-      post :create, :gallery_id => sofa_gallery_galleries(:default), :photo => { }
+      post :create, :gallery_id => sofa_gallery_galleries(:default), :sofa_gallery_photo => { }
       assert_response :success
       assert_template 'new'
       assert_equal 'Failed to create Photo', flash[:error]
