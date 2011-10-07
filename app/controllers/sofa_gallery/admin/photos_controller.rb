@@ -70,7 +70,7 @@ protected
   end
   
   def build_photo
-    @photo = SofaGallery::Photo.new({:gallery => @gallery}.merge(params[:photo] || {}))
+    @photo = SofaGallery::Photo.new({:gallery => @gallery}.merge(params[:sofa_gallery_photo] || {}))
   end
   
 end
