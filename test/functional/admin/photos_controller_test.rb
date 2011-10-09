@@ -25,20 +25,48 @@ class SofaGallery::Admin::PhotosControllerTest < ActionController::TestCase
     assert_select "form[action='/admin/galleries/#{gallery.id}/photos']"
   end
 
-  def test_creation
+  def test_create
     assert_difference 'SofaGallery::Photo.count' do
       post :create, :gallery_id => sofa_gallery_galleries(:default), :sofa_gallery_photo => {
         :title  => 'Test Photo',
         :slug   => 'test-photo',
-        :image  => fixture_file_upload('/files/default.jpg', 'image/jpeg')
+        :image  => [fixture_file_upload('/files/default.jpg', 'image/jpeg')]
       }
       assert_response :redirect
       assert_redirected_to :action => :index
       assert_equal 'Photo created', flash[:notice]
+      
+      photo = SofaGallery::Photo.last
+      assert_equal 'Test Photo', photo.title
+      assert_equal 'test-photo', photo.slug
+    end
+  end
+  
+  def test_create_without_title_or_slug
+    assert_difference 'SofaGallery::Photo.count', 2 do
+      post :create, :gallery_id => sofa_gallery_galleries(:default), :sofa_gallery_photo => {
+        :image  => [fixture_file_upload('/files/default.jpg', 'image/jpeg')]
+      }
+      assert_response :redirect
+      assert_redirected_to :action => :index
+      assert_equal 'Photo created', flash[:notice]
+      
+      photo = SofaGallery::Photo.last
+      assert_equal 'default.jpg', photo.title
+      assert_equal 'default-jpg', photo.slug
+      
+      post :create, :gallery_id => sofa_gallery_galleries(:default), :sofa_gallery_photo => {
+        :slug   => 'Testrrr',
+        :image  => [fixture_file_upload('/files/default.jpg', 'image/jpeg')]
+      }
+      
+      photo = SofaGallery::Photo.last
+      assert_equal 'default.jpg', photo.title
+      assert_equal 'Testrrr', photo.slug
     end
   end
 
-  def test_creation_fail
+  def test_create_failure
     assert_no_difference 'SofaGallery::Photo.count' do
       post :create, :gallery_id => sofa_gallery_galleries(:default), :sofa_gallery_photo => { }
       assert_response :success
@@ -46,6 +74,35 @@ class SofaGallery::Admin::PhotosControllerTest < ActionController::TestCase
       assert_equal 'Failed to create Photo', flash[:error]
     end
   end
+  
+  
+  def test_create_multiple
+    SofaGallery::Photo.delete_all
+    
+    assert_difference 'SofaGallery::Photo.count', 2 do
+      post :create, :gallery_id => sofa_gallery_galleries(:default), :sofa_gallery_photo => {
+        :title  => 'Test Photo',
+        :slug   => 'test-photo',
+        :image  => [
+          fixture_file_upload('/files/default.jpg', 'image/jpeg'),
+          fixture_file_upload('/files/default.jpg', 'image/jpeg')
+        ]
+      }
+      assert_response :redirect
+      assert_redirected_to :action => :index
+      
+      photo_a, photo_b = SofaGallery::Photo.all
+      
+      assert_equal 'default.jpg', photo_a.image_file_name
+      assert_equal 'default.jpg', photo_b.image_file_name
+      assert_equal 'Test Photo 1', photo_a.title
+      assert_equal 'Test Photo 2', photo_b.title
+      assert_equal 'test-photo-1', photo_a.slug
+      assert_equal 'test-photo-2', photo_b.slug
+      assert_equal 'Photo created', flash[:notice]
+    end
+  end
+  
   
   def test_get_edit
     photo = sofa_gallery_photos(:default)

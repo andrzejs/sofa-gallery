@@ -13,7 +13,27 @@ class SofaGallery::Admin::PhotosController < SofaGallery::Admin::BaseController
   end
   
   def create
-    @photo.save!
+    file_array  = params[:sofa_gallery_photo][:image] || [nil]
+    
+    file_array.each_with_index do |file, i|
+      file_params = params[:sofa_gallery_photo].merge(:image => file)
+      
+      title = (file_params[:title].blank? && file_params[:image] ? 
+        file_params[:image].original_filename : 
+        file_params[:title]
+      )
+      title = title + " #{i + 1}" if file_params[:title] == title && file_array.size > 1
+      
+      slug = (file_params[:slug].blank? && file_params[:image] ? 
+        file_params[:image].original_filename.parameterize : 
+        file_params[:slug]
+      )
+      slug = (slug + "-#{i + 1}") if file_params[:slug] == slug && file_array.size > 1
+      
+      @photo = SofaGallery::Photo.new({:gallery => @gallery}.merge(file_params.merge(:title => title, :slug => slug) || {}))
+      @photo.save!
+    end
+    
     flash[:notice] = 'Photo created'
     redirect_to :action => :index
   rescue ActiveRecord::RecordInvalid

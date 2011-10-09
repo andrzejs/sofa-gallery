@@ -1,13 +1,13 @@
 <%= form.text_field :title, :id => (@photo.new_record?? 'slugify' : nil) %>
 <%= form.text_field :slug, :id => 'slug' %>
-<% if @photo.image? %>
+<% if @photo.image? && @photo.id.present? %>
   <%= form.simple_field 'Current Image' do %>
     <%= image_tag(@photo.image.url(:thumb)) %>
     <br/>
     <%= link_to 'Crop Image', crop_sofa_gallery_admin_gallery_photo_path(@gallery, @photo) if @photo.force_aspect? %>
   <% end %>
 <% end %>
-<%= form.file_field :image %>
+<%= form.file_field :image, :multiple => true %>
 <%= form.text_area :description %>
 <%= form.simple_field nil, nil, :class => 'submit_element' do %>
   <%= link_to "Cancel", sofa_gallery_admin_gallery_photos_path(@photo.gallery), :id => 'cancel_btn' %>

@@ -30,6 +30,10 @@ class SofaGallery::Photo < ActiveRecord::Base
   # -- Validations ----------------------------------------------------------
   validates :gallery_id,
     :presence => true
+  validates :slug,
+    :presence   => true,
+    :uniqueness => true,
+    :format     => { :with =>  /^\w[a-z0-9_-]*$/i }
   validates_attachment_presence :image,
     :message      => 'There was no file uploaded!'
   validates_attachment_content_type :image,

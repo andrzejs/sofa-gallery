@@ -11,7 +11,7 @@ class PhotoTest < ActiveSupport::TestCase
   def test_validations
     photo = SofaGallery::Photo.new
     assert photo.invalid?
-    assert_has_errors_on photo, :image_file_name
+    assert_has_errors_on photo, {:gallery_id=>["can't be blank"], :slug=>["can't be blank", "is invalid"], :image_file_name=>["There was no file uploaded!"]}
   end
   
   def test_creation
