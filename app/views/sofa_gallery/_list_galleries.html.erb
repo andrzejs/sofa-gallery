@@ -5,7 +5,7 @@
   <% @galleries.each do |gallery| %>
     <div class="sofa_gallery">
       <div class="photo_preview">
-        <% gallery.photos.limit(6).each do |photo| %>
+        <% gallery.photos.order(:position).limit(6).each do |photo| %>
           <%= image_tag(photo.image.url(:admin_thumb), :alt => photo.description) %>
         <% end %>
       </div>

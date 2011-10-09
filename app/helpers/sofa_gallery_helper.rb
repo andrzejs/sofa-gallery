@@ -18,4 +18,13 @@ module SofaGalleryHelper
     end
   end
   
+  def render_galleries(type = 'list_galleries')
+    @galleries = SofaGallery::Gallery.all
+    if (@galleries)
+      render :partial => "sofa_gallery/#{type}"
+    else
+      render :text => 'Gallery not found.', :status => 404
+    end
+  end
+  
 end

@@ -14,7 +14,7 @@
   <% end %>
   <% if @gallery.photos.count > 0 %>
     <div id="featured">
-      <% @gallery.photos.each do |photo| %>
+      <% @gallery.photos.order(:position).each do |photo| %>
         <%= photo.image.url(:full), :alt => photo.description, :id => dom_id(photo), :"data-caption" => "##{dom_id(photo)}htmlCaption" %>
       <% end %>
     </div>

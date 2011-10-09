@@ -41,9 +41,6 @@ class SofaGallery::Photo < ActiveRecord::Base
     :message      => 'Please only upload .jpg, .jpeg, .gif or .png files.'
   validates_attachment_size :image,
     :less_than    => 5.megabytes
-      
-  # -- Scopes ---------------------------------------------------------------
-  default_scope order(:position)
   
   # -- Instance Methods -----------------------------------------------------
   def image_geometry(style = :original)
